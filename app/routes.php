@@ -11,7 +11,28 @@
 |
 */
 
-Route::get('/', function()
+
+
+Route::group(
+array(
+    'prefix' => 'backend',
+    'before' => 'auth.sentry'
+),
+function()
 {
-	return View::make('hello');
+    Route::resource('dashboards', 'DashboardsController');
+ 
+});
+
+
+Route::group(
+array(
+    'prefix' => 'backend',
+),
+function()
+{
+    Route::get('/', 'AuthController@index');
+    Route::get('/create', 'AuthController@create');
+    Route::post('/auth', 'AuthController@authenticate');
+    Route::get('/logout', 'AuthController@logout');
 });

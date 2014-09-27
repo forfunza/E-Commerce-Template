@@ -195,6 +195,11 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
+		'Sentry' 			=> 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+		'Image' 			=> 'Intervention\Image\Facades\Image',
+		'LaravelLocalization'   => 'Mcamara\LaravelLocalization\Facades\LaravelLocalization',
+		'Notification' 		=> 'Krucas\Notification\Facades\Notification',
+		'Theme' 			=> 'Teepluss\Theme\Facades\Theme',
 
 	),
 

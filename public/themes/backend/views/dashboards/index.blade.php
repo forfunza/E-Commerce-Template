@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/amedclinic/app/views/dashboards/index.blade.php

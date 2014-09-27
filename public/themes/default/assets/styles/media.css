@@ -1,0 +1,246 @@
+@media only screen and (min-width:980px) and (max-width:1150px){
+
+}
+@media only screen and (min-width:981px) {
+	
+}
+@media only screen and (min-width:980px) and (max-width:1100px){}
+@media only screen and (min-width:320px) and (max-width:980px){
+	.container,.top-header, footer,header,footer{
+		width:auto;
+		padding:10px;
+		}
+	header,.top-header,header .container{
+		padding:0px;
+		}
+	.top-header{
+		font-size:22px;
+		padding:0px 10px;
+		}
+	.cart-area {
+float: right;
+
+}
+.top-header,footer{
+	min-width:1px;
+	}
+footer{
+	height: auto;
+	text-align: center;
+	}
+.camera_prev{
+	left:0px !important;
+	opacity:1 !important;
+	}
+.camera_next{
+	right:0px !important;
+	opacity:1 !important;
+	}
+.ft-rigt{
+	float:none;
+	text-align:center;
+	}
+.product-detail-block .prod-left,.product-detail-block .prod-right{
+	width:100%;
+	}
+.product-detail-block .prod-right{
+	float:left;
+	}
+	
+}
+@media only screen and (max-device-width:1280px){
+	
+
+}
+
+@media only screen and (max-width:800px){
+	
+	.tf-4{
+		display:none;
+		}
+		.cocol-left{
+		float:none;
+		width:100%;
+		}
+
+	.cocol-right{
+		clear:both;
+		}
+	}
+@media only screen and (max-width : 750px){
+	.hp-right{
+	float:none;
+	width: 100%;
+	margin-left:0px;
+	margin-bottom:10px;
+	}
+.hp-right .thumbnail{
+	height:auto;
+	}
+.hp-right .thumbnail img{
+	width:100%;
+	top: -45%;
+	}
+
+	.h-review-vdo{
+		width:100%;
+		float:none;
+		padding-right: 0px;
+		margin-right: 0px;
+		border-right:none;
+		margin-bottom:10px;
+		}
+			.tf-1{
+		margin-bottom: 20px;
+		text-align: center;
+		width: 100%;
+		margin-right: 0px;
+		margin-bottom:20px;
+		}
+		.tf-2, .tf-3 {
+width: 44%;
+}
+.h-service ul li{
+	width:30%;
+	margin:5px;
+	}
+	.ccol-left{
+		float:none;
+		width:100%;
+		margin-right:0px;
+		padding-right:0px;
+		border-right:none;
+		min-height:0px;
+		}
+	.ccol-right h1{
+		margin-top:20px;
+		}
+	.contact-menu div{
+		float:left;
+		}
+	.pro-detail{
+		border-right: 0px;
+		float: none;
+		overflow: hidden;
+		width: auto;
+		padding-left: 10px;
+		padding-right:0px;
+		margin-right:0px;
+		}
+	.pro-time-price{
+		clear: both;
+	border-top: 1px solid #40547f;
+	text-align:center;
+	padding-top:10px;
+		}
+	.pro-count-time img{
+		width:auto;
+		}
+		.service-form input[type="text"],.service-form input[type="text"].half{
+	width:77%;
+	}
+	.loginLeft{
+		display:none;
+		}
+	.loginRight{
+		display:block;
+		}
+}
+@media only screen and (min-width : 401px){
+	
+	}
+@media only screen and (max-width : 400px), only screen and (max-device-width : 400px){
+	
+	.top-header .call-top{
+		display:none
+		}
+	.top-header{
+		position:fixed;
+		width:100%;
+		z-index:9999;
+		top:0px;
+		margin-top:0px;
+		text-align:center;
+		}
+	.top-header .cart-area{
+		float:none;
+		}
+	.slider-header{
+		margin-top:50px;
+		}
+		.top-header ul{
+	display:none;
+	}
+	.h-service ul li{
+	width:45%;
+	margin:5px;
+	}
+
+	.contact-menu div{
+		width:50%;
+		}
+		.co-block img{
+			width:100%;
+			}
+		.co-block,.cocol-left{
+		float:none;
+		width:100%;
+		margin:0px;
+		margin-bottom:10px;
+		}
+		.service-form input[type="text"],.service-form input[type="text"].half{
+			width:98%;
+			}
+		.tf-2, .tf-3{
+			margin-right:5px;
+			}
+		h2{
+			font-size:30px;
+			}
+		.product-block{
+			padding: 5px 35px;
+			}
+		.promotion-thumbnail{
+			float:none;
+			text-align:center;
+			width:auto;
+			}
+		.pro-detail{
+			padding-left:0px;
+			margin:0px;
+			margin-top:10px;
+			}
+		.pro-item{
+			width:auto;
+			}
+		.pro-item-left{
+			width:100px;
+			}
+		.loaction-block img{
+			width:100px;
+			height:100px;
+			}
+		.job-caption .job-col{
+			width:auto;
+			float:none;
+			border-left:none;
+			}
+		.amed-logo{
+			margin-left: 22px !important;
+			width: 90px !important;
+			}
+		#v-nav >ul >li{
+			width:120px !important;
+			font-size: 16px !important;
+			}
+		#v-nav >ul{
+			width:120px !important;
+			}
+		#v-nav >div.tab-content{
+			margin-left:120px !important;
+			padding: 10px !important;
+			}
+		a.addcart-b-btn{
+			background: #000d46 url("../images/cart-icon.png") 15px center no-repeat;
+			}
+	}

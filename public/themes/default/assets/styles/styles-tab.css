@@ -55,8 +55,7 @@
     border-bottom: none;
 }
 
-#v-nav >div.tab-content
-{
+#v-nav >div.tab-content{
     margin-left: 210px;
     background-color: #FFF;
     min-height: 350px;
@@ -64,6 +63,7 @@
     z-index: 9;
     display: none;
     padding: 10px 20px;
+	overflow:auto;
 }
 
 #v-nav >div.tab-content >h4

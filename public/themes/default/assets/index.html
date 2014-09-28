@@ -26,7 +26,10 @@
     <link rel="shortcut icon" href="">
     <script>
 		jQuery(function(){
-			jQuery('#camera_wrap').camera();
+			jQuery('#camera_wrap').camera({
+				loader: 'bar',
+				barPosition: 'top'
+				});
 		});
 	</script>
   </head>
@@ -216,16 +219,7 @@
         </section>
         
         <section>
-        	<h2><i class="tl"></i><span>Products</span><i class="tr"></i></h2>
-             <div class="hp-right">
-            	<a href="#">
-            		<div class="thumbnail"><img src="images/simple-1.jpg" /></div>
-                    <div class="hn">
-                        <div class="toppic">แพทย์แฉ!! เรื่องจริง</div>
-                            <p>ปกติการทำ e-Matrix จะเห็นผลชัดมาก ๆ ต้องทำอย่างน้อง 3-5 ครั้งคะ นี่เป็นเพียงผลจากการทำครั้งแรกนะคะ ถามว่าคุ้มไหมกับการต้องจ่ายแพงกว่า การทำเลเซอรแบบอื่น เราว่าค้มนะ เพราะแผลเว้กมาก สะเก็ดเล็กมากจริง ๆ เพียงแค่วันที่ 3 ก็หลุดแล้ว เลเซอร์แบบอื่นใช้เวลาเป็นสัปดาห์กว่าจะหลุด...ผิวหน้าบแบซ้ำน้อยกว่าค่ะ </p>
-                    </div>
-                </a>
-            </div>
+        	<h2><i class="tl"></i><span>Products</span><i class="tr"></i></h2> 
             <div class="hp-left">
             	 <div class="toppic">ขายดีที่สุดในเกาหลี</div>
                <div class="customNavigation">
@@ -273,11 +267,17 @@
                 	<a href="#" class="cart-btn">หยิบใส่ตระกร้า</a>
                     <div class="clear"></div>
                 </div>
-              </div>
-             
-                 
+              </div>  
             </div>
-           
+           <div class="hp-right">
+            	<a href="#">
+            		<div class="thumbnail"><img src="images/simple-1.jpg" /></div>
+                    <div class="hn">
+                        <div class="toppic">แพทย์แฉ!! เรื่องจริง</div>
+                            <p>ปกติการทำ e-Matrix จะเห็นผลชัดมาก ๆ ต้องทำอย่างน้อง 3-5 ครั้งคะ นี่เป็นเพียงผลจากการทำครั้งแรกนะคะ ถามว่าคุ้มไหมกับการต้องจ่ายแพงกว่า การทำเลเซอรแบบอื่น เราว่าค้มนะ เพราะแผลเว้กมาก สะเก็ดเล็กมากจริง ๆ เพียงแค่วันที่ 3 ก็หลุดแล้ว เลเซอร์แบบอื่นใช้เวลาเป็นสัปดาห์กว่าจะหลุด...ผิวหน้าบแบซ้ำน้อยกว่าค่ะ </p>
+                    </div>
+                </a>
+            </div>
             <div class="clear"></div>
         </section>
         

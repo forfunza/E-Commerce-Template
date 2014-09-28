@@ -56,7 +56,9 @@ footer{
 @media only screen and (max-width:800px){
 	
 	.tf-4{
-		display:none;
+		width: 100%;
+		float: none;
+		height: auto;
 		}
 		.cocol-left{
 		float:none;
@@ -65,6 +67,12 @@ footer{
 
 	.cocol-right{
 		clear:both;
+		}
+	.pro-item{
+		width:auto;
+		}
+	.pro-item-left{
+		float:left;
 		}
 	}
 @media only screen and (max-width : 750px){
@@ -101,7 +109,7 @@ footer{
 width: 44%;
 }
 .h-service ul li{
-	width:30%;
+	width:47.7%;
 	margin:5px;
 	}
 	.ccol-left{
@@ -145,8 +153,30 @@ width: 44%;
 	.loginRight{
 		display:block;
 		}
+		.pro-item-left{
+			float:left;
+			}
+		.service-list-area .pro-item{
+			width:auto;
+			}
+			.service-list-area .pro-item-left{
+			float:left
+			}
+			.hp-left{
+				float:none;
+				width:auto;
+				margin-right:0px;
+				margin-bottom:10px;
+				}
+			.co-block{
+				width: 45.35%;
+				}
+			
 }
-@media only screen and (min-width : 401px){
+@media only screen and (max-width : 500px){
+	.pro-item-left{
+			float:none;
+			}
 	
 	}
 @media only screen and (max-width : 400px), only screen and (max-device-width : 400px){
@@ -154,13 +184,14 @@ width: 44%;
 	.top-header .call-top{
 		display:none
 		}
-	.top-header{
-		position:fixed;
-		width:100%;
-		z-index:9999;
-		top:0px;
-		margin-top:0px;
-		text-align:center;
+	.top-header {
+		position: fixed;
+		width: 100%;
+		z-index: 99999;
+		top: 0px;
+		left: 0px;
+		margin-top: 0px;
+		text-align: center;
 		}
 	.top-header .cart-area{
 		float:none;
@@ -177,9 +208,11 @@ width: 44%;
 	}
 
 	.contact-menu div{
-		width:50%;
+		width: 100%;
+	float: none;
+	text-align: center;
 		}
-		.co-block img{
+		.co-block img,.contact-menu div img{
 			width:100%;
 			}
 		.co-block,.cocol-left{
@@ -187,6 +220,8 @@ width: 44%;
 		width:100%;
 		margin:0px;
 		margin-bottom:10px;
+		border:none;
+		padding-right:0px;
 		}
 		.service-form input[type="text"],.service-form input[type="text"].half{
 			width:98%;
@@ -213,8 +248,12 @@ width: 44%;
 		.pro-item{
 			width:auto;
 			}
+		.pro-item img{
+			width:100%;
+			}
+		
 		.pro-item-left{
-			width:100px;
+			width:auto;
 			}
 		.loaction-block img{
 			width:100px;
@@ -231,7 +270,7 @@ width: 44%;
 			}
 		#v-nav >ul >li{
 			width:120px !important;
-			font-size: 16px !important;
+			font-size: 15px !important;
 			}
 		#v-nav >ul{
 			width:120px !important;
@@ -242,5 +281,11 @@ width: 44%;
 			}
 		a.addcart-b-btn{
 			background: #000d46 url("../images/cart-icon.png") 15px center no-repeat;
+			font-size:24px;
 			}
+			
+			.timeline .timeline-row{
+				left:0px !important;
+				}
+			
 	}

@@ -46,16 +46,16 @@ a:hover{
 .top-header,footer{
 	width:100%;
 	min-width:900px;
-	background:url(../images/header.png) no-repeat center;
+	background:url(../images/header.png) repeat center;
 	height:49px;
 	color:#fff;
 	text-transform:uppercase;
-	font-family: 'Conv_DSNKM',Arial,Sans-Serif;
+	font-family: 'Conv_PSL153',Arial,Sans-Serif;
 	font-size:36px;
 	line-height:46px;
 	}
 h1{
-	font-family: 'Conv_DSNKM',Arial,Sans-Serif;
+	font-family: 'Conv_PSL152SP',Arial,Sans-Serif;
 margin-top: 0px;
 text-transform: uppercase;
 font-size: 30px;
@@ -112,8 +112,8 @@ margin-bottom: 10px;
 	font-weight:bold;
 	}
 .cart-link{
-	font-family:Arial, Helvetica, sans-serif;
-	font-size:12px;
+	font-family:'Conv_PSL152SP',Arial, Helvetica, sans-serif;
+	font-size:20px;
 	margin-left:15px;
 	}
 .cart-icon{
@@ -130,7 +130,7 @@ margin-bottom: 10px;
 	margin-top:1px;
 	}
 .main-menu{
-	font-family: 'Conv_DSNKM',Arial,Sans-Serif;
+	font-family: 'Conv_PSL152SP',Arial,Sans-Serif;
 	margin:5px 0px;
 	background:url(../images/bg-menu.png) repeat-x;
 	height:26px;
@@ -138,7 +138,7 @@ margin-bottom: 10px;
 	font-size:17px;
 	padding-top: 1px;
 	position:relative;
-	z-index:90;
+	z-index:9999;
 	margin-bottom:20px;
 	}
 .h-review-vdo{
@@ -153,7 +153,7 @@ section{
 	clear:both;
 	}
 h2{
-	font-family: 'Conv_DSNKM',Arial,Sans-Serif;
+	font-family: 'Conv_PSL153',Arial,Sans-Serif;
 	font-size:38px;
 	color:#001b54;
 	text-align:center;
@@ -255,6 +255,10 @@ h2 i.tr{
 	}
 .h-service ul li a:hover img{
 	border:1px solid #d29535;
+	opacity:0.5;
+	}
+.h-service ul li a:hover img.play-icon{
+	opacity:1;
 	}
 .promotion-block{
 	padding:10px;
@@ -317,6 +321,7 @@ h2 i.tr{
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	padding:20px 10px;
+	height: 278px;
 	}
 .margin-top-30{
 	margin-top:30px !important;
@@ -361,7 +366,7 @@ h2 i.tr{
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#101744', endColorstr='#101744',GradientType=1 ); 
 	}
 footer{
-	background:url(../images/footer.png) no-repeat center;
+	background:url(../images/footer.png) repeat center;
 	height:191px;
 	font-size:18px;
 	font-weight:bold;
@@ -392,6 +397,7 @@ footer span{
 	background:#001b54;
 	color:#fff;
 	padding:10px 20px;
+	padding-bottom:1px;
 	}
 .hn .toppic,.hp-left .toppic{
 	font-family: 'Conv_Kittithada',Arial,Sans-Serif;
@@ -404,8 +410,7 @@ footer span{
 .hp-right{
 	position:  relative;
 	width:440px;
-	float:right;
-	margin-left:15px;
+	overflow: hidden;
 	}
 .hp-right .thumbnail{
 	height: 265px;
@@ -418,10 +423,12 @@ overflow: hidden;
 	position: relative;
 	}
 .hp-left{
-	overflow: hidden;
+	float:left;
+	width:445px;
 	padding:10px;
 	border:1px solid #40547f;
 	position:relative;
+	margin-right:15px;
 	}
 .hn p{
 	margin-top:0px;
@@ -452,11 +459,12 @@ overflow: hidden;
 .item-caption{
 	font-size:12px;
 	color:#636363;
-	height: 34px;
+	height: 31px;
+	line-height: 16px;
 	overflow: hidden;
 	}
 .hp-left .item-caption{
-	height: 118px;
+	height: 110px;
 }
 a.cart-btn{
 	background:url(../images/cart-icon.jpg) no-repeat left;
@@ -641,7 +649,9 @@ a.cart-btn{
 .cocol-left{
 	width:80%;
 	float:left;
-	margin-right:2%;
+	margin-right: 2%;
+	padding-right: 2%;
+	border-right: 1px dashed #ccc;
 	}
 .co-block{
 	float: left;
@@ -674,6 +684,7 @@ a.cart-btn{
 	}
 .all-service ul a{
 	color:#40547f;
+	font-size:13px;
 	}
 .all-service ul li{
 	list-style: none;
@@ -857,18 +868,19 @@ a.pro-btn,.submit,.reset{
 	margin-right:10px;
 	}
 .service-form{
-	font-family: 'Conv_Kittithada',Arial,Sans-Serif;
+	font-family: Arial,Sans-Serif;
 	padding:10px;
 	background:#eaebf3;
-	font-size:18px;
+	font-size:12px;
 	font-weight:bold;
 	margin-top:20px;
 	color:#40547f;
 	}
 .service-form h1{
+	font-family: 'Conv_PSL152SP';
 	margin:0px;
 	margin-bottom:5px;
-	font-size:24px;
+	font-size:28px;
 	}
 .service-form input[type="text"],.service-form select{
 	font-family:Arial, Helvetica, sans-serif;
@@ -892,6 +904,7 @@ a.pro-btn,.submit,.reset{
 .service-form span{
 	width: 80px;
 	display: inline-block;
+	padding-left:10px;
 	}
 .near-pomotion{
 	margin-top:20px;
@@ -962,7 +975,7 @@ a.pro-btn,.submit,.reset{
 	margin-bottom:0px;
 	}
 .prod-right{
-	font-family: 'Conv_Kittithada';
+	font-family: 'Conv_PSL152SP';
 	font-size:22px;
 	padding-top:3px;
 	line-height:40px;
@@ -1158,3 +1171,32 @@ a.pro-item .pro-item-caption{
 	line-height:24px;
 	color:#ccc;
 	}
+.page-number ul{
+	text-align:center;
+	margin:0px;
+	padding:0px;
+	}
+	.page-number ul li{
+		display: inline-block;
+		width:auto;
+		float:none;
+		margin:0px;
+		}
+	.page-number ul li a{
+		min-width:30px;
+		display:inline-block;
+		background: #eaebf3;
+		line-height:25px;
+		-webkit-border-radius: 50px;
+		-moz-border-radius: 50px;
+		border-radius: 50px;
+		padding:0px;
+		padding-bottom:2px;
+		}
+	.page-number ul li:last-child a{
+		padding:0px 10px;
+		padding-bottom:2px;
+		}
+	.panel-body a{
+		color: #6E97BD;
+		}

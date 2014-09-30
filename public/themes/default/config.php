@@ -66,7 +66,7 @@ return array(
             $theme->asset()->usePath()->add('font', 'styles/fonts.css',array('main'));
             $theme->asset()->usePath()->add('media', 'styles/media.css',array('main'), array('media' => 'screen, projection'));
             $theme->asset()->usePath()->add('flexnav', 'styles/flexnav.css',array('main'), array('media' => 'screen, projection'));
-            //$theme->asset()->usePath()->add('camera', 'styles/camera.css',array('main'), array('media' => 'all'));
+            
             $theme->asset()->usePath()->add('owl.carousel', 'styles/owl.carousel.css',array('main'));
             $theme->asset()->usePath()->add('owl.theme', 'styles/owl.theme.css',array('main'));
             $theme->asset()->usePath()->add('styles-tab', 'styles/styles-tab.css',array('main'));
@@ -84,7 +84,7 @@ return array(
             $theme->asset()->container('script-header')->usePath()->add('jquery', 'js/jquery.min.js');
             $theme->asset()->container('script-header')->usePath()->add('chrome', 'js/jquery.mobile.customized.min.js', array('jquery'));
             $theme->asset()->container('script-header')->usePath()->add('menu', 'js/jquery.easing.1.3.js', array('jquery'));
-            $theme->asset()->container('script-header')->usePath()->add('camera', 'js/camera.js', array('jquery'));
+            
 
 
            

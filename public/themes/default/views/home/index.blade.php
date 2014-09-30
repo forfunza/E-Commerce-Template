@@ -1,14 +1,14 @@
 <div class="camera_wrap" id="camera_wrap">
-<div data-src="{{ asset('themes/default/assets/images/slider/slider-1.jpg') }}"></div>
-<div data-src="{{ asset('themes/default/assets/images/slider/slider-2.jpg') }}"></div>
-<div data-src="{{ asset('themes/default/assets/images/slider/slider-3.jpg') }}"></div>
-<div data-src="{{ asset('themes/default/assets/images/slider/slider-4.jpg') }}"></div>
-<div data-src="{{ asset('themes/default/assets/images/slider/slider-5.jpg') }}"></div>
-<div data-src="{{ asset('themes/default/assets/images/slider/slider-6.jpg') }}"></div>
-<div data-src="{{ asset('themes/default/assets/images/slider/slider-7.jpg') }}"></div>
-<div data-src="{{ asset('themes/default/assets/images/slider/slider-8.jpg') }}"></div>
-<div data-src="{{ asset('themes/default/assets/images/slider/slider-9.jpg') }}"></div>
-<div data-src="{{ asset('themes/default/assets/images/slider/slider-10.jpg') }}"></div>
+    <div data-src="{{ asset('themes/default/assets/images/slider/slider-1.jpg') }}"></div>
+    <div data-src="{{ asset('themes/default/assets/images/slider/slider-2.jpg') }}"></div>
+    <div data-src="{{ asset('themes/default/assets/images/slider/slider-3.jpg') }}"></div>
+    <div data-src="{{ asset('themes/default/assets/images/slider/slider-4.jpg') }}"></div>
+    <div data-src="{{ asset('themes/default/assets/images/slider/slider-5.jpg') }}"></div>
+    <div data-src="{{ asset('themes/default/assets/images/slider/slider-6.jpg') }}"></div>
+    <div data-src="{{ asset('themes/default/assets/images/slider/slider-7.jpg') }}"></div>
+    <div data-src="{{ asset('themes/default/assets/images/slider/slider-8.jpg') }}"></div>
+    <div data-src="{{ asset('themes/default/assets/images/slider/slider-9.jpg') }}"></div>
+    <div data-src="{{ asset('themes/default/assets/images/slider/slider-10.jpg') }}"></div>
 </div>
 <section>
 <h2><i class="tl"></i><span>Review</span><i class="tr"></i></h2>
@@ -26,7 +26,6 @@
 </div>
 <div class="clear"></div>
 </section>
-
 <section>
 <h2><i class="tl"></i><span>Hot Service</span><i class="tr"></i></h2>
 <div class="h-service">
@@ -43,7 +42,6 @@
     <div class="clear"></div>
 </div>
 </section>
-
 <section>
 <h2><i class="tl"></i><span>Promotion</span><i class="tr"></i></h2>
 <div class="promotion-block">
@@ -123,18 +121,8 @@
     </div>
 </div>
 </section>
-
 <section>
 <h2><i class="tl"></i><span>Products</span><i class="tr"></i></h2>
-<div class="hp-right">
-    <a href="#">
-        <div class="thumbnail"><img src="{{ asset('themes/default/assets/images/simple-1.jpg') }}" /></div>
-        <div class="hn">
-            <div class="toppic">แพทย์แฉ!! เรื่องจริง</div>
-            <p>ปกติการทำ e-Matrix จะเห็นผลชัดมาก ๆ ต้องทำอย่างน้อง 3-5 ครั้งคะ นี่เป็นเพียงผลจากการทำครั้งแรกนะคะ ถามว่าคุ้มไหมกับการต้องจ่ายแพงกว่า การทำเลเซอรแบบอื่น เราว่าค้มนะ เพราะแผลเว้กมาก สะเก็ดเล็กมากจริง ๆ เพียงแค่วันที่ 3 ก็หลุดแล้ว เลเซอร์แบบอื่นใช้เวลาเป็นสัปดาห์กว่าจะหลุด...ผิวหน้าบแบซ้ำน้อยกว่าค่ะ </p>
-        </div>
-    </a>
-</div>
 <div class="hp-left">
     <div class="toppic">ขายดีที่สุดในเกาหลี</div>
     <div class="customNavigation">
@@ -183,9 +171,15 @@
             <div class="clear"></div>
         </div>
     </div>
-    
-    
 </div>
-
+<div class="hp-right">
+    <a href="#">
+        <div class="thumbnail"><img src="{{ asset('themes/default/assets/images/simple-1.jpg') }}" /></div>
+        <div class="hn">
+            <div class="toppic">แพทย์แฉ!! เรื่องจริง</div>
+            <p>ปกติการทำ e-Matrix จะเห็นผลชัดมาก ๆ ต้องทำอย่างน้อง 3-5 ครั้งคะ นี่เป็นเพียงผลจากการทำครั้งแรกนะคะ ถามว่าคุ้มไหมกับการต้องจ่ายแพงกว่า การทำเลเซอรแบบอื่น เราว่าค้มนะ เพราะแผลเว้กมาก สะเก็ดเล็กมากจริง ๆ เพียงแค่วันที่ 3 ก็หลุดแล้ว เลเซอร์แบบอื่นใช้เวลาเป็นสัปดาห์กว่าจะหลุด...ผิวหน้าบแบซ้ำน้อยกว่าค่ะ </p>
+        </div>
+    </a>
+</div>
 <div class="clear"></div>
 </section>

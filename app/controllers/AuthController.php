@@ -57,7 +57,7 @@ class AuthController extends AdminController {
 		    return Redirect::action('AuthController@index')->with('message','User is banned.');
 		}
 
-		return Redirect::action('DashboardsController@index');
+		return Redirect::action('ProductsController@index');
 	}
 
 	public function logout()

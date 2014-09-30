@@ -43,4 +43,21 @@ function()
 
 
 Route::get('/', 'HomeController@index');
+Route::get('/login', 'HomeController@login');
 Route::get('/aboutus', 'HomeController@aboutus');
+Route::get('/knowledge', 'HomeController@knowledge');
+Route::get('/knowledge/{id}', 'HomeController@knowledge_detail');
+Route::get('/celebrity', 'HomeController@celebrity');
+Route::get('/video-review', 'HomeController@review');
+Route::get('/video-review/{id}', 'HomeController@review_detail');
+Route::get('/consult-doctor', 'HomeController@consult');
+Route::get('/consult-doctor/{id}', 'HomeController@consult_detail');
+Route::get('/service', 'HomeController@service');
+Route::get('/product', 'HomeController@product');
+Route::get('/product/{id}', 'HomeController@product_detail');
+Route::get('/promotion', 'HomeController@promotion');
+Route::get('/before-after', 'HomeController@before');
+Route::get('/co-bather', 'HomeController@bather');
+Route::get('/news', 'HomeController@news');
+Route::get('/contact-us', 'HomeController@contact');
+Route::get('/career', 'HomeController@career');

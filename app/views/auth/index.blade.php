@@ -35,9 +35,8 @@
     <div class="container">
 
       {{ Form::open(array('action' => array('AuthController@authenticate'), 'class' => 'form-signin', 'method' => 'post')) }}
-        <h2 class="form-signin-heading">ผู้ดูแลระบบ</h2>
+        <h2 class="form-signin-heading">Administrator</h2>
         <div class="login-wrap">
-
             <div class="user-login-info">
             @if(Session::has('message'))
             <div class="alert alert-success fade in">
@@ -50,14 +49,8 @@
                 <input type="text" class="form-control" name="username" placeholder="User ID" autofocus required>
                 <input type="password" class="form-control" name="password" placeholder="Password" required>
             </div>
-           
-            <button class="btn btn-lg btn-login btn-block" type="submit">เข้าสู่ระบบ</button>
-
-            
+            <button class="btn btn-lg btn-login btn-block" type="submit">Access</button>
         </div>
-
-          
-
       {{ form::close() }}
 
     </div>

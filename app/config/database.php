@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'coolspace_ud',
+			'database'  => 'coolspace_amed',
 			'username'  => 'coolspace_ud',
 			'password'  => 'hyJzHGy1',
 			'charset'   => 'utf8',

@@ -15,9 +15,16 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
+	public function index()
 	{
-		return View::make('hello');
+		$view = array();
+		return $this->theme->scope('home.index', $view)->render();
+	}
+
+	public function aboutus()
+	{
+		$view = array();
+		return $this->theme->scope('home.aboutus', $view)->render();
 	}
 
 }

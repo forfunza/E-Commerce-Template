@@ -21,6 +21,9 @@ array(
 function()
 {
     Route::resource('dashboards', 'DashboardsController');
+    Route::resource('categories', 'CategoriesController');
+    Route::resource('services', 'ServicesController');
+    Route::resource('products', 'ProductsController');
  
 });
 
@@ -36,3 +39,8 @@ function()
     Route::post('/auth', 'AuthController@authenticate');
     Route::get('/logout', 'AuthController@logout');
 });
+
+
+
+Route::get('/', 'HomeController@index');
+Route::get('/aboutus', 'HomeController@aboutus');

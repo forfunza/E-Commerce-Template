@@ -84,7 +84,7 @@ return array(
                 $theme->asset()->container('core-css')->usePath()->add('bootstrap-fileupload', 'js/bootstrap-fileupload/bootstrap-fileupload.css', array('bootstrap'));
                 $theme->asset()->container('core-css')->usePath()->add('bootstrap-wysihtml5', 'js/bootstrap-wysihtml5/bootstrap-wysihtml5.css', array('bootstrap'));
                 
-
+                $theme->asset()->container('core-css')->usePath()->add('DT_bootstrap', 'js/data-tables/DT_bootstrap.css', array('bootstrap'));
                 //Custom styles for this template
                 $theme->asset()->container('core-css')->usePath()->add('style', 'css/style.css', array('bootstrap'));
                 $theme->asset()->container('core-css')->usePath()->add('style-responsive', 'css/style-responsive.css', array('bootstrap'));
@@ -102,10 +102,17 @@ return array(
                 $theme->asset()->container('core-js')->usePath()->add('bootstrap-wysihtml5', 'js/bootstrap-wysihtml5/bootstrap-wysihtml5.js', array('jquery'));
                 $theme->asset()->container('core-js')->usePath()->add('ckeditor', 'js/ckeditor/ckeditor.js', array('jquery'));
 
+                
+       
+        
                 //<!--Easy Pie Chart-->
                 $theme->asset()->container('core-js')->usePath()->add('easypiechart', 'js/easypiechart/jquery.easypiechart.js', array('jquery'));
                 //<!--Sparkline Chart-->
                 $theme->asset()->container('core-js')->usePath()->add('sparkline', 'js/sparkline/jquery.sparkline.js', array('jquery'));
+
+                $theme->asset()->container('core-js')->usePath()->add('dataTables', 'js/data-tables/jquery.dataTables.js', array('jquery'));
+                $theme->asset()->container('core-js')->usePath()->add('DT_bootstrap', 'js/data-tables/DT_bootstrap.js', array('jquery'));
+                $theme->asset()->container('core-js')->usePath()->add('table-editable', 'js/table-editable.js', array('jquery'));
                 //<!--jQuery Flot Chart-->
                 // $theme->asset()->container('core-js')->usePath()->add('jquery.flot', 'js/flot-chart/jquery.flot.js', array('jquery'));
                 // $theme->asset()->container('core-js')->usePath()->add('jquery.flot.tooltip', 'js/flot-chart/jquery.flot.tooltip.min.js', array('jquery'));

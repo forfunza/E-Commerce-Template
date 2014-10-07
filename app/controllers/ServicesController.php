@@ -58,7 +58,6 @@ class ServicesController extends AdminController {
 		
 
 		Service::create(array(
-					'image' => asset('farms/images/services/'.$image.''),
 					'name' => $data['name'],
 					'highlight' => $data['highlight'],
 					'description' => $data['description'],

@@ -88,7 +88,12 @@ return array(
                 //Custom styles for this template
                 $theme->asset()->container('core-css')->usePath()->add('style', 'css/style.css', array('bootstrap'));
                 $theme->asset()->container('core-css')->usePath()->add('style-responsive', 'css/style-responsive.css', array('bootstrap'));
+                $theme->asset()->container('core-css')->usePath()->add('style-datetimepicker', 'js/bootstrap-datetimepicker/css/datetimepicker.css', array('bootstrap'));
+
+
+
                 
+    
                 //<!--Core js-->
                 $theme->asset()->container('core-js')->usePath()->add('jquery', 'js/jquery.js');
                 $theme->asset()->container('core-js')->usePath()->add('bootstrap', 'bs3/js/bootstrap.min.js', array('jquery'));
@@ -113,6 +118,11 @@ return array(
                 $theme->asset()->container('core-js')->usePath()->add('dataTables', 'js/data-tables/jquery.dataTables.js', array('jquery'));
                 $theme->asset()->container('core-js')->usePath()->add('DT_bootstrap', 'js/data-tables/DT_bootstrap.js', array('jquery'));
                 $theme->asset()->container('core-js')->usePath()->add('table-editable', 'js/table-editable.js', array('jquery'));
+                $theme->asset()->container('core-js')->usePath()->add('ckeditor', 'js/ckeditor/ckeditor.js', array('jquery'));
+                $theme->asset()->container('core-js')->usePath()->add('datetimepicker', 'js/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js', array('jquery'));
+
+                $theme->asset()->container('core-js')->usePath()->add('datepicker', 'js/bootstrap-datepicker/js/bootstrap-datepicker.js', array('jquery'));
+
                 //<!--jQuery Flot Chart-->
                 // $theme->asset()->container('core-js')->usePath()->add('jquery.flot', 'js/flot-chart/jquery.flot.js', array('jquery'));
                 // $theme->asset()->container('core-js')->usePath()->add('jquery.flot.tooltip', 'js/flot-chart/jquery.flot.tooltip.min.js', array('jquery'));

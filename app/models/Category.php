@@ -8,7 +8,7 @@ class Category extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['entity_id','name'];
+	protected $fillable = ['entity_id','name','image'];
 
 
 	public function services()

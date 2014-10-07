@@ -24,7 +24,17 @@ function()
     Route::resource('categories', 'CategoriesController');
     Route::resource('services', 'ServicesController');
     Route::resource('products', 'ProductsController');
- 
+    Route::resource('abouts', 'AboutsController');
+    Route::resource('knowledges', 'KnowledgesController');
+    Route::resource('celebrities', 'CelebritiesController');
+    Route::resource('reviews', 'ReviewsController');
+    Route::resource('consults', 'ConsultsController');
+    Route::resource('promotions', 'PromotionsController');
+    Route::resource('befores', 'BeforesController');
+    Route::resource('bathers', 'BathersController');
+    Route::resource('news', 'NewsController');
+    Route::resource('contacts', 'ContactsController');
+    Route::resource('branches', 'BranchesController');
 });
 
 
@@ -53,6 +63,8 @@ Route::get('/video-review/{id}', 'HomeController@review_detail');
 Route::get('/consult-doctor', 'HomeController@consult');
 Route::get('/consult-doctor/{id}', 'HomeController@consult_detail');
 Route::get('/service', 'HomeController@service');
+Route::get('/service-detail/{id}', 'HomeController@service_detail');
+Route::get('/service-categories/{id}', 'HomeController@service_categories');
 Route::get('/product', 'HomeController@product');
 Route::get('/product/{id}', 'HomeController@product_detail');
 Route::get('/promotion', 'HomeController@promotion');

@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/amedclinic/app/views/bathers/edit.blade.php

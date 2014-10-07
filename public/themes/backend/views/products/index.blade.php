@@ -32,10 +32,10 @@
                             <tr>
                             	<td>{{ $product->name }}</td>
                                 <td>{{ $product->category->name }}</td>
-                                <td><a class="btn btn-info" href="{{ action('ProductsController@edit',$product->id) }}">แก้ไข</a></td>
+                                <td><a class="btn btn-info" href="{{ action('ProductsController@edit',$product->id) }}">Edit</a></td>
                                 <td>
                                 {{ Form::open(array('action' => array('ProductsController@destroy', $product->id), 'method' => 'delete')) }}
-                                <button type="submit" class="btn btn-danger">ลบ</button>
+                                <button type="submit" class="btn btn-danger">Delete</button>
                                 {{ Form::close() }}
                                 </td>
                             </tr>

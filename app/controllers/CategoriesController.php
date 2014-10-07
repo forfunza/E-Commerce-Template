@@ -57,7 +57,21 @@ class CategoriesController extends AdminController {
 		}
 
 
-		Category::create($data);
+		$category = Category::create($data);
+
+		if(Input::hasFile('image')){
+			
+			$dt = new DateTime;
+			$image = $dt->getTimestamp().'.'.Input::file('image')->getClientOriginalExtension();
+			Image::make(Input::file('image')->getRealPath())->save('farms/images/'.$image);
+
+			$category->update(
+				array(
+						'image' => asset('farms/images/'.$image.'')
+					)
+				);
+			
+		}
 
 		$entity = Entity::find($data['entity_id']);
 
@@ -112,7 +126,21 @@ class CategoriesController extends AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$category->update($data);
+		if(Input::hasFile('image')){
+			
+			$dt = new DateTime;
+			$image = $dt->getTimestamp().'.'.Input::file('image')->getClientOriginalExtension();
+			Image::make(Input::file('image')->getRealPath())->save('farms/images/'.$image);
+			
+			$category->update([
+						'image' => asset('farms/images/'.$image.'')
+					]);
+			
+		}
+
+		$category->update([
+			'name' => $data['name']
+			]);
 
 		$entity = Entity::find($category->entity_id);
 

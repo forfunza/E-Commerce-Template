@@ -33,41 +33,50 @@
             <li class="sub-menu">
                 <a href="javascript:;">
                     <i class="fa fa-road"></i>
-                    <span>General</span>
+                    <span>Informations</span>
                 </a>
                 <ul class="sub">
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Knowledge</a></li>
-                    <li><a href="#">Celebrity</a></li>
-                    <li><a href="#">Video & Review</a></li>
-                    <li><a href="#">Consult Doctor</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Career</a></li>
+                    <li><a href="{{ action('AboutsController@edit',1) }}">About Us</a></li>
+                    <li><a href="{{ action('KnowledgesController@index') }}">Knowledge</a></li>
+                    <li><a href="{{ action('CelebritiesController@index') }}">Celebrity</a></li>
+                    <li><a href="{{ action('ReviewsController@index') }}">Video & Review</a></li>
+                    <li><a href="{{ action('ConsultsController@index') }}">Consult Doctor</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ action('PromotionsController@index') }}">
                     <i class="fa fa-gift"></i>
-                    <span>Promotion</span>
+                    <span>Promotions</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ action('BeforesController@index') }}">
                     <i class="fa fa-comments-o"></i>
                     <span>Before - After</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ action('BathersController@index') }}">
                     <i class="fa fa-group"></i>
                     <span>CO - Bather</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ action('NewsController@index') }}">
                     <i class="fa fa-bullhorn"></i>
                     <span>News & Event</span>
                 </a>
+            </li>
+            <li class="sub-menu">
+                <a href="javascript:;">
+                    <i class="fa fa-road"></i>
+                    <span>Contacts</span>
+                </a>
+                <ul class="sub">
+                    <li><a href="{{ action('ContactsController@edit',1) }}">Information</a></li>
+                    <li><a href="{{ action('BranchesController@index') }}">Branch</a></li>
+                    <li><a href="#">Career</a></li>
+                </ul>
             </li>
 
             

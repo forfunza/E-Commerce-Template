@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/amedclinic/app/views/celebrities/create.blade.php

@@ -15,14 +15,11 @@
             <li><a href="#">Services</a>
             <ul>
                 <li><a href="{{ action('HomeController@service') }}">All Services</a></li>
-                <li><a href="{{ action('HomeController@service') }}">Anti Aging</a></li>
-                <li><a href="{{ action('HomeController@service') }}">Auto Smooth</a></li>
-                <li><a href="{{ action('HomeController@service') }}">Botox</a></li>
-                <li><a href="{{ action('HomeController@service') }}">V-Face</a></li>
-                <li><a href="{{ action('HomeController@service') }}">Face Perfect</a></li>
-                <li><a href="{{ action('HomeController@service') }}">Body Attraction</a></li>
-                <li><a href="{{ action('HomeController@service') }}">Six Pack Fast Track</a></li>
-                <li><a href="{{ action('HomeController@service') }}">Face Rejuvenate</a></li>
+                @if($categories)
+                @foreach ($categories as $category)
+                <li><a href="{{ action('HomeController@service_categories',$category->id) }}">{{ $category->name }}</a></li>
+                @endforeach
+                @endif
             </ul>
         </li>
         <li><a href="{{ action('HomeController@product') }}">Products</a></li>

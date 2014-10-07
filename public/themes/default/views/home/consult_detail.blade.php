@@ -1,12 +1,12 @@
 <section>
         	<h2><i class="tl"></i><span>Consult Doctor</span><i class="tr"></i></h2>
-        	<div class="product-name"><h1>คุณหมอแก้ว</h1></div>
+        	<div class="product-name"><h1>{{ $consult->name }}</h1></div>
             <div class="product-detail">
-            	หมอก็ต้องมีอารมณ์อยากสวยเหมือนกันนะ ดูสิหน้าหมอแก้วฟินเนอะ ยังไงหมอก็เป็นผู้หญิงก็มีอารมณ์นี้เป็นเรื่องธรรมดานะจ๊ะ เพราะถ้าหมอสวยแล้วลูกค้าก็ต้องสวยแน่นอนจ้า
+            	{{ $consult->description }}
             </div>
             <div class="product-detail-block">
             	<div class="prod-left">
-                	<img src="https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xap1/v/t1.0-9/10649587_718567531556578_4930590177915140463_n.jpg?oh=1141d7edd65e7e6157a2449ba260c60b&oe=54CD8262&__gda__=1422429118_82e9c9c1eda2c017eb67f44e2c7c6707" />
+                	<img src="{{ $consult->image }}" />
                 </div>
                 <div class="prod-right">
                 	<div class="fb-chatbox-area">

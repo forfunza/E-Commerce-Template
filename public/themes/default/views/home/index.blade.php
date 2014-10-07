@@ -10,35 +10,35 @@
     <div data-src="{{ asset('themes/default/assets/images/slider/slider-9.jpg') }}"></div>
     <div data-src="{{ asset('themes/default/assets/images/slider/slider-10.jpg') }}"></div>
 </div>
+@if($review)
 <section>
 <h2><i class="tl"></i><span>Review</span><i class="tr"></i></h2>
 <div class="h-review-vdo">
-    <iframe width="100%" height="200" src="http://www.youtube.com/embed/Au2VyBvbJAk?list=RDw00IbDpGdvw" frameborder="0" allowfullscreen></iframe>
+    <iframe width="100%" height="200" src="{{ $review->youtube }}" frameborder="0" allowfullscreen></iframe>
 </div>
 <div class="h-review-block">
     <div class="review-thumb"></div>
-    <div class="review-toppic">e-Matrix</div>
+    <div class="review-toppic">{{ $review->name }}</div>
     <div class="review-detail">
-        <p>ปกติการทำ e-Matrix จะเห็นผลชัดมาก ๆ ต้องทำอย่างน้อง 3-5 ครั้งคะ นี่เป็นเพียงผลจากการทำครั้งแรกนะคะ ถามว่าคุ้มไหมกับการต้องจ่ายแพงกว่า การทำเลเซอรแบบอื่น เราว่าค้มนะ เพราะแผลเว้กมาก สะเก็ดเล็กมากจริง ๆ เพียงแค่วันที่ 3 ก็หลุดแล้ว เลเซอร์แบบอื่นใช้เวลาเป็นสัปดาห์กว่าจะหลุด...ผิวหน้าบแบซ้ำน้อยกว่าค่ะ</p>
-        <p>ปกติการทำ e-Matrix จะเห็นผลชัดมาก ๆ ต้องทำอย่างน้อง 3-5 ครั้งคะ นี่เป็นเพียงผลจากการทำครั้งแรกนะคะ ถามว่าคุ้มไหมกับการต้องจ่ายแพงกว่า การทำเลเซอรแบบอื่น เราว่าค้มนะ เพราะแผลเว้กมาก สะเก็ดเล็กมากจริง ๆ เพียงแค่วันที่ 3 ก็หลุดแล้ว เลเซอร์แบบอื่นใช้เวลาเป็นสัปดาห์กว่าจะหลุด...ผิวหน้าบแบซ้ำน้อยกว่าค่ะ</p>
-        
+    <p>
+        {{ $review->description }}
+     </p>   
     </div>
 </div>
 <div class="clear"></div>
 </section>
+@endif
 <section>
 <h2><i class="tl"></i><span>Hot Service</span><i class="tr"></i></h2>
 <div class="h-service">
+    @if($category_services)
+    @foreach ($category_services as $key => $category) 
     <ul>
-        <li><a href="#">Anti Aging <span><img src="{{ asset('themes/default/assets/images/service/service-0.jpg') }}" /></span></a></li>
-        <li><a href="#">Auto Smooth <span><img src="{{ asset('themes/default/assets/images/service/service-1.jpg') }}" /></span></a></li>
-        <li><a href="#">Botox <span><img src="{{ asset('themes/default/assets/images/service/service-2.jpg') }}" /></span></a></li>
-        <li><a href="#">V-Face <span><img src="{{ asset('themes/default/assets/images/service/service-3.jpg') }}" /></span></a></li>
-        <li><a href="#">Face Perfect <span><img src="{{ asset('themes/default/assets/images/service/service-4.jpg') }}" /></span></a></li>
-        <li><a href="#">Body Attraction <span><img src="{{ asset('themes/default/assets/images/service/service-5.jpg') }}" /></span></a></li>
-        <li><a href="#">Six Pack Fast Track <span><img src="{{ asset('themes/default/assets/images/service/service-6.jpg') }}" /></span></a></li>
-        <li><a href="#">Face Rejuvenate <span><img src="{{ asset('themes/default/assets/images/service/service-7.jpg') }}" /></span></a></li>
+        <li><a href="#">{{ $category->name }} <span><img src="{{ $category->image ? $category->image : 'http://placehold.it/187x140&text=Image' }}" /></span></a></li>
+        
     </ul>
+    @endforeach
+    @endif
     <div class="clear"></div>
 </div>
 </section>
@@ -57,50 +57,22 @@
         </ul>
         <div class="tab-content" style="display:block;">
             <div class="promotion-content">
+                @if($promotions)
+                @foreach ($promotions as $promotion) 
                 <div class="pro-item">
                     <div class="pro-item-left">
-                        <div class="pro-item-thumnail"><img src="{{ asset('themes/default/assets/images/item/promotion-1.jpg') }}" /></div>
+                        <div class="pro-item-thumnail"><img src="{{ $promotion->image }}" /></div>
                         <a href="#">สั่งซื้อโปรฯ นี้</a>
                     </div>
                     <div class="pro-item-right">
-                        <h3>e-Matrix</h3>
-                        <div class="pro-item-caption">ปกติการทำ e-Matrix จะเห็นผลชัดมาก ๆ ต้องทำอย่างน้อง 3-5 ครั้งคะ</div>
-                        <div class="exp-date">หมดเขต 31 ม.ค. 2557</div>
+                        <h3>{{ $promotion->name }}</h3>
+                        <div class="pro-item-caption">{{ str_limit($promotion->description, $limit = 100, $end = '') }}</div>
+                        <div class="exp-date"> expire : {{ date('d M Y',strtotime($promotion->expire)) }}</div>
                     </div>
                 </div>
-                <div class="pro-item">
-                    <div class="pro-item-left">
-                        <div class="pro-item-thumnail"><img src="{{ asset('themes/default/assets/images/item/promotion-1.jpg') }}" /></div>
-                        <a href="#">สั่งซื้อโปรฯ นี้</a>
-                    </div>
-                    <div class="pro-item-right">
-                        <h3>e-Matrix</h3>
-                        <div class="pro-item-caption">ปกติการทำ e-Matrix จะเห็นผลชัดมาก ๆ ต้องทำอย่างน้อง 3-5 ครั้งคะ</div>
-                        <div class="exp-date">หมดเขต 31 ม.ค. 2557</div>
-                    </div>
-                </div>
-                <div class="pro-item">
-                    <div class="pro-item-left">
-                        <div class="pro-item-thumnail"><img src="{{ asset('themes/default/assets/images/item/promotion-1.jpg') }}" /></div>
-                        <a href="#">สั่งซื้อโปรฯ นี้</a>
-                    </div>
-                    <div class="pro-item-right">
-                        <h3>e-Matrix</h3>
-                        <div class="pro-item-caption">ปกติการทำ e-Matrix จะเห็นผลชัดมาก ๆ ต้องทำอย่างน้อง 3-5 ครั้งคะ</div>
-                        <div class="exp-date">หมดเขต 31 ม.ค. 2557</div>
-                    </div>
-                </div>
-                <div class="pro-item">
-                    <div class="pro-item-left">
-                        <div class="pro-item-thumnail"><img src="{{ asset('themes/default/assets/images/item/promotion-1.jpg') }}" /></div>
-                        <a href="#">สั่งซื้อโปรฯ นี้</a>
-                    </div>
-                    <div class="pro-item-right">
-                        <h3>e-Matrix</h3>
-                        <div class="pro-item-caption">ปกติการทำ e-Matrix จะเห็นผลชัดมาก ๆ ต้องทำอย่างน้อง 3-5 ครั้งคะ</div>
-                        <div class="exp-date">หมดเขต 31 ม.ค. 2557</div>
-                    </div>
-                </div>
+                @endforeach
+                @endif
+                
             </div>
         </div>
         <div class="tab-content">

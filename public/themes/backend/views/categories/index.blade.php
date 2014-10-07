@@ -30,10 +30,10 @@
                             @foreach ($categories as $category)
                             <tr>
                                 <td>{{ $category->name }}</td>
-                                <td><a class="btn btn-info" href="{{ action('CategoriesController@edit',$category->id) }}">แก้ไข</a></td>
+                                <td><a class="btn btn-info" href="{{ action('CategoriesController@edit',$category->id) }}">Edit</a></td>
                                 <td>
                                 {{ Form::open(array('action' => array('CategoriesController@destroy', $category->id), 'method' => 'delete')) }}
-                                <button type="submit" class="btn btn-danger">ลบ</button>
+                                <button type="submit" class="btn btn-danger">Delete</button>
                                 {{ Form::close() }}
                                 </td>
                             </tr>

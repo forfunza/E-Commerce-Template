@@ -88,11 +88,11 @@ return array(
 
 
            
-            // Partial composer.
-            // $theme->partialComposer('header', function($view)
-            // {
-            //     $view->with('auth', Auth::user());
-            // });
+            //Partial composer.
+            $theme->partialComposer('menu', function($view)
+            {
+                $view->with('categories', Category::where('entity_id',1)->get());
+            });
         },
 
         // Listen on event before render a layout,

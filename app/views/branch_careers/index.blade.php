@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/amedclinic/app/views/branch_careers/index.blade.php

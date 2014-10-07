@@ -277,6 +277,10 @@
 
         // tool tips
 
+        $(".form_datetime-component").datetimepicker({
+            
+        });
+
         $('.tooltips').tooltip();
 
         // popovers

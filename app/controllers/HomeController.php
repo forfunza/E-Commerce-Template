@@ -17,7 +17,7 @@ class HomeController extends BaseController {
 
 	public function index()
 	{
-		$view = array();
+		
 		$this->theme->asset()->usePath()->add('camera', 'styles/camera.css',array('main'), array('media' => 'all'));
 		$this->theme->asset()->container('script-header')->usePath()->add('camera', 'js/camera.js', array('jquery'));
 
@@ -52,6 +52,19 @@ jQuery(function(){
 	</script>
 ');
 
+		$category_services = Category::where('entity_id',1)->get();
+		$promotions = Promotion::all()->take(4);
+		//$news = News::orderBy('created_at','desc')->first();
+		$review = Review::orderBy('created_at','desc')->first();
+		//dd($review);
+
+
+		$view = array(
+			'category_services' => $category_services,
+			'promotions' => $promotions,
+			'review' => $review
+			);
+
 		return $this->theme->scope('home.index', $view)->render();
 	}
 
@@ -63,19 +76,33 @@ jQuery(function(){
 
 	public function aboutus()
 	{
-		$view = array();
+		$about = About::find(1);
+		$contact = Contact::find(1);
+		$view = array(
+			'about' => $about,
+			'contact' => $contact
+			);
 		return $this->theme->scope('home.aboutus', $view)->render();
 	}
 
 	public function knowledge()
 	{
-		$view = array();
+		$knowledges = Knowledge::all();
+		$view = array(
+			'knowledges' => $knowledges
+			);
 		return $this->theme->scope('home.knowledge', $view)->render();
 	}
 
 	public function knowledge_detail($id)
 	{
-		$view = array();
+		$knowledge = Knowledge::findOrFail($id);
+		$service_category = Category::where('entity_id',1)->get();
+		
+		$view = array(
+			'knowledge' => $knowledge,
+			'service_category' => $service_category
+			);
 		return $this->theme->scope('home.knowledge_detail', $view)->render();
 	}
 
@@ -106,13 +133,20 @@ $container.imagesLoaded( function() {
 	
     </script>');
 
-		$view = array();
+		$celebrity = Celebrity::all();
+
+		$view = array(
+			'celebrity' => $celebrity
+			);
 		return $this->theme->scope('home.celebrity', $view)->render();
 	}
 
 	public function review()
 	{
-		$view = array();
+		$reviews = Review::simplePaginate(12);
+		$view = array(
+			'reviews' => $reviews
+			);
 		return $this->theme->scope('home.review', $view)->render();
 	}
 
@@ -136,8 +170,12 @@ $container.imagesLoaded( function() {
 	
     });
     </script>');
+
+		$review = Review::findOrFail($id);
 		
-		$view = array();
+		$view = array(
+			'review' => $review
+			);
 		return $this->theme->scope('home.review_detail', $view)->render();
 	}
 
@@ -160,7 +198,10 @@ $container.imagesLoaded( function() {
 	
     });
     </script>');
-		$view = array();
+		$consults = Consult::all();
+		$view = array(
+			'consults' => $consults
+			);
 		return $this->theme->scope('home.consult', $view)->render();
 	}
 
@@ -183,7 +224,10 @@ $container.imagesLoaded( function() {
 	
     });
     </script>');
-		$view = array();
+		$consult = Consult::findOrFail($id);
+		$view = array(
+			'consult' => $consult
+			);
 		return $this->theme->scope('home.consult_detail', $view)->render();
 	}
 
@@ -198,9 +242,65 @@ $container.imagesLoaded( function() {
 	
     });
     </script>');
-		
-		$view = array();
+		$categories = Category::where('entity_id',1)->get();
+		$view = array(
+			'categories' => $categories
+			);
 		return $this->theme->scope('home.service', $view)->render();
+	}
+
+	public function service_detail($id)
+	{
+		$this->theme->asset()->container('inline-footer')->writeContent('service','<script>
+    $(document).ready(function() {
+
+      var owl = $(".owl-item");
+      owl.owlCarousel({
+      	items: 3,
+		navigation:true,
+		pagination:false,
+		autoplay:false,
+		navigationText : ["prev","next"],
+		autoplayTimeout:5000,
+		autoplaySpeed:1000
+
+      });
+	
+    });
+    </script>');
+		$service = Service::findOrFail($id);
+		$services = Service::all();
+		$view = array(
+			'service' => $service,
+			'services' => $services
+			);
+		return $this->theme->scope('home.service_detail', $view)->render();
+	}
+
+	public function service_categories($id)
+	{
+		$this->theme->asset()->container('inline-footer')->writeContent('service','<script>
+    $(document).ready(function() {
+
+      var owl = $(".owl-item");
+      owl.owlCarousel({
+      	items: 3,
+		navigation:true,
+		pagination:false,
+		autoplay:false,
+		navigationText : ["prev","next"],
+		autoplayTimeout:5000,
+		autoplaySpeed:1000
+
+      });
+	
+    });
+    </script>');
+		$categories = Category::findOrFail($id);
+		$view = array(
+			'categories' => $categories
+			);
+		return $this->theme->scope('home.service_categories', $view)->render();
 	}
 
 	public function product()
@@ -222,7 +322,12 @@ $container.imagesLoaded( function() {
 	
     });
     </script>');
-		$view = array();
+		$categories = Category::where('entity_id',2)->get();
+		$bests = Product::where('best_sell',1)->get();
+		$view = array(
+			'categories' => $categories,
+			'bests' => $bests
+			);
 		return $this->theme->scope('home.product', $view)->render();
 	}
 
@@ -233,30 +338,52 @@ $container.imagesLoaded( function() {
 		$this->theme->asset()->container('script-header')->usePath()->add('fotorama', 'js/fotorama.js', array('jquery'));
 
 		$this->theme->asset()->container('inline-footer')->writeContent('product-detail','<script>
-    $(document).ready(function() {
-
-      var owl = $(".owl-item");
-      owl.owlCarousel({
-      	items: 3,
-		navigation:true,
-		pagination:false,
-		autoplay:false,
-		navigationText : ["prev","next"],
-		autoplayTimeout:5000,
-		autoplaySpeed:1000
-
-      });
-	
-    });
-    </script>');
-		
-		$view = array();
+	    $(document).ready(function() {
+	      var owl = $(".owl-item");
+	      owl.owlCarousel({
+	      	items: 3,
+			navigation:true,
+			pagination:false,
+			autoplay:false,
+			navigationText : ["prev","next"],
+			autoplayTimeout:5000,
+			autoplaySpeed:1000
+	      });
+	    });
+	    </script>');
+		$product = Product::findOrFail($id);
+		$bests = Product::where('best_sell',1)->get();
+		$view = array(
+			'product' => $product,
+			'bests' => $bests
+			);
 		return $this->theme->scope('home.product_detail', $view)->render();
 	}
 
 	public function promotion()
 	{
-		$view = array();
+		$this->theme->asset()->container('inline-footer')->writeContent('promotion','<script>
+	    $(document).ready(function() {
+	      var owl = $(".owl-item");
+	      owl.owlCarousel({
+	      	items: 3,
+			navigation:true,
+			pagination:false,
+			autoplay:false,
+			navigationText : ["prev","next"],
+			autoplayTimeout:5000,
+			autoplaySpeed:1000
+	      });
+	    });
+	    </script>');
+		$promotions = Promotion::all();
+		$services = Service::all();
+		$bests = Product::where('best_sell',1)->get();
+ 		$view = array(
+			'promotions' => $promotions,
+			'services' => $services,
+			'bests' => $bests
+			);
 		return $this->theme->scope('home.promotion', $view)->render();
 	}
 
@@ -271,19 +398,23 @@ $container.imagesLoaded( function() {
 
 		$this->theme->asset()->container('inline-footer')->writeContent('before','<script type="text/javascript">
 
-var $container = $("#masonry").masonry();
-// layout Masonry again after all images have loaded
-$container.imagesLoaded( function() {
-  $container.masonry();
-});
-	
+		var $container = $("#masonry").masonry();
+		// layout Masonry again after all images have loaded
+		$container.imagesLoaded( function() {
+		  $container.masonry();
+		});
+
 		jQuery(document).ready(function($) {
 			$(".group1").colorbox({rel:"group1", transition:"fade"});
 			
-		});
-	
-    </script>');
-		$view = array();
+		})
+
+		    </script>');
+		$befores = Before::all();
+		$view = array(
+			'befores' => $befores
+			);
+
 		return $this->theme->scope('home.before_after', $view)->render();
 	}
 
@@ -316,7 +447,10 @@ $container.imagesLoaded( function() {
 		});
 	
     </script>');
-		$view = array();
+		$news = News::all();
+		$view = array(
+			'news' => $news
+			);
 		return $this->theme->scope('home.news', $view)->render();
 	}
 

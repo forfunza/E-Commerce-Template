@@ -1,6 +1,6 @@
 <?php
 
-class $NAME$ extends \BaseController {
+class $NAME$ extends \AdminController {
 
 	/**
 	 * Display a listing of $COLLECTION$
@@ -11,7 +11,11 @@ class $NAME$ extends \BaseController {
 	{
 		$$COLLECTION$ = $MODEL$::all();
 
-		return View::make('$COLLECTION$.index', compact('$COLLECTION$'));
+		$view = array(
+			'$COLLECTION$' => $$COLLECTION$
+			);
+
+		return $this->theme->scope('$COLLECTION$.index', $view)->render();
 	}
 
 	/**
@@ -21,7 +25,7 @@ class $NAME$ extends \BaseController {
 	 */
 	public function create()
 	{
-		return View::make('$COLLECTION$.create');
+		return $this->theme->scope('$COLLECTION$.create')->render();
 	}
 
 	/**
@@ -40,7 +44,7 @@ class $NAME$ extends \BaseController {
 
 		$MODEL$::create($data);
 
-		return Redirect::route('$COLLECTION$.index');
+		return Redirect::action('$NAME$@index')->with('message','');
 	}
 
 	/**
@@ -53,7 +57,7 @@ class $NAME$ extends \BaseController {
 	{
 		$$RESOURCE$ = $MODEL$::findOrFail($id);
 
-		return View::make('$COLLECTION$.show', compact('$RESOURCE$'));
+		return $this->theme->scope('$COLLECTION$.show', $$COLLECTION$)->render();
 	}
 
 	/**
@@ -66,7 +70,11 @@ class $NAME$ extends \BaseController {
 	{
 		$$RESOURCE$ = $MODEL$::find($id);
 
-		return View::make('$COLLECTION$.edit', compact('$RESOURCE$'));
+		$view = array(
+			'$RESOURCE$' => $$RESOURCE$
+			);
+		
+		return $this->theme->scope('$COLLECTION$.edit', $view)->render();
 	}
 
 	/**
@@ -88,7 +96,7 @@ class $NAME$ extends \BaseController {
 
 		$$RESOURCE$->update($data);
 
-		return Redirect::route('$COLLECTION$.index');
+		return Redirect::action('$NAME$@index')->with('message','');
 	}
 
 	/**
@@ -101,7 +109,7 @@ class $NAME$ extends \BaseController {
 	{
 		$MODEL$::destroy($id);
 
-		return Redirect::route('$COLLECTION$.index');
+		return Redirect::action('$NAME$@index')->with('message','');
 	}
 
 }

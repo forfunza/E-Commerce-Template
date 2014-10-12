@@ -1241,3 +1241,85 @@ a.pro-item .pro-item-caption{
 .fotorama__wrap{
 	width:100% !important;
 	}
+.table-cart{
+	background:#EBEBEB;
+	width: 100%;
+	}
+
+.table-cart td{
+	background:#fff;
+	}
+.icon-del{
+	background: url(../images/icons.png) no-repeat 0px -24px;
+	width: 24px;
+	height: 24px;
+	display: block;
+	cursor: pointer;
+	}
+.icon-del:hover{
+	background-position: -24px -24px;
+	}
+.table-cart input[type="text"],.address-table input[type="text"]{
+	width:50px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	outline:none;
+	line-height:22px;
+	padding:0px 5px;
+	border:1px solid #ccc;
+	}
+.address-table input[type="text"]{
+	width:80%;
+	}
+.table-cart img{
+	max-width:100px;
+	}
+.table-cart a{
+	color:#40547f;
+	}
+.table-cart thead td{
+	background:#F3F3F3;
+	color:#333;
+	font-weight:bold;
+	}
+.mrt0{
+	margin-top:0px !important;
+	}
+.adleft{
+	width:20%;
+	float:left;
+	font-weight:bold;
+	}
+.ad-right{
+	overflow:hidden;}
+.normaladdress{
+	padding:10px;
+	border:1px dashed #ccc;
+	position:relative;
+	}
+.normaladdress .icon-del{
+	position:absolute;
+	right:10px;
+	top:10px;
+	}
+.address-table{
+	font-size:14px;
+	line-height:24px;
+	width:100%;
+	}
+.nameTD{
+	width:25%;
+	}
+.table-cart .num-rate{
+	font-size:18px;
+	}
+.order-remark {
+	width:100%;
+	min-height:100px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border:1px solid #ccc;
+	margin-bottom:20px;
+	}

@@ -2,91 +2,91 @@
     <h2><i class="tl"></i><span>Co-bather</span><i class="tr"></i></h2>
     <div class="cocol-left">
         <div class="co-block">
-            <a href="co-barter-detail.html">
+            <a href="../themes/default/assets/co-barter-detail.html">
                 <img src="{{ asset('themes/default/assets/images/item/co-1.jpg') }}" />
                 <div class="co-tel">โทร. 084-680-8666</div>
             </a>
         </div>
         <div class="co-block">
-            <a href="co-barter-detail.html">
+            <a href="../themes/default/assets/co-barter-detail.html">
                 <img src="{{ asset('themes/default/assets/images/item/co-2.jpg') }}" />
                 <div class="co-tel">โทร. 084-680-8666</div>
             </a>
         </div>
         <div class="co-block">
-            <a href="co-barter-detail.html">
+            <a href="../themes/default/assets/co-barter-detail.html">
                 <img src="{{ asset('themes/default/assets/images/item/co-3.jpg') }}" />
                 <div class="co-tel">โทร. 084-680-8666</div>
             </a>
         </div>
         <div class="co-block">
-            <a href="co-barter-detail.html">
+            <a href="../themes/default/assets/co-barter-detail.html">
                 <img src="{{ asset('themes/default/assets/images/item/co-4.jpg') }}" />
                 <div class="co-tel">โทร. 084-680-8666</div>
             </a>
         </div>
         <div class="co-block">
-            <a href="co-barter-detail.html">
+            <a href="../themes/default/assets/co-barter-detail.html">
                 <img src="{{ asset('themes/default/assets/images/item/co-5.jpg') }}" />
                 <div class="co-tel">โทร. 084-680-8666</div>
             </a>
         </div>
         <div class="co-block">
-            <a href="co-barter-detail.html">
+            <a href="../themes/default/assets/co-barter-detail.html">
                 <img src="{{ asset('themes/default/assets/images/item/co-6.jpg') }}" />
                 <div class="co-tel">โทร. 084-680-8666</div>
             </a>
         </div>
         <div class="co-block">
-            <a href="co-barter-detail.html">
+            <a href="../themes/default/assets/co-barter-detail.html">
                 <img src="{{ asset('themes/default/assets/images/item/co-1.jpg') }}" />
                 <div class="co-tel">โทร. 084-680-8666</div>
             </a>
         </div>
         <div class="co-block">
-            <a href="co-barter-detail.html">
+            <a href="../themes/default/assets/co-barter-detail.html">
                 <img src="{{ asset('themes/default/assets/images/item/co-2.jpg') }}" />
                 <div class="co-tel">โทร. 084-680-8666</div>
             </a>
         </div>
         <div class="co-block">
-            <a href="co-barter-detail.html">
+            <a href="../themes/default/assets/co-barter-detail.html">
                 <img src="{{ asset('themes/default/assets/images/item/co-3.jpg') }}" />
                 <div class="co-tel">โทร. 084-680-8666</div>
             </a>
         </div>
         <div class="co-block">
-            <a href="co-barter-detail.html">
+            <a href="../themes/default/assets/co-barter-detail.html">
                 <img src="{{ asset('themes/default/assets/images/item/co-4.jpg') }}" />
                 <div class="co-tel">โทร. 084-680-8666</div>
             </a>
         </div>
         <div class="co-block">
-            <a href="co-barter-detail.html">
+            <a href="../themes/default/assets/co-barter-detail.html">
                 <img src="{{ asset('themes/default/assets/images/item/co-5.jpg') }}" />
                 <div class="co-tel">โทร. 084-680-8666</div>
             </a>
         </div>
         <div class="co-block">
-            <a href="co-barter-detail.html">
+            <a href="../themes/default/assets/co-barter-detail.html">
                 <img src="{{ asset('themes/default/assets/images/item/co-6.jpg') }}" />
                 <div class="co-tel">โทร. 084-680-8666</div>
             </a>
         </div>
         <div class="co-block">
-            <a href="co-barter-detail.html">
+            <a href="../themes/default/assets/co-barter-detail.html">
                 <img src="{{ asset('themes/default/assets/images/item/co-1.jpg') }}" />
                 <div class="co-tel">โทร. 084-680-8666</div>
             </a>
         </div>
         <div class="co-block">
-            <a href="co-barter-detail.html">
+            <a href="../themes/default/assets/co-barter-detail.html">
                 <img src="{{ asset('themes/default/assets/images/item/co-2.jpg') }}" />
                 <div class="co-tel">โทร. 084-680-8666</div>
             </a>
         </div>
         <div class="co-block">
-            <a href="co-barter-detail.html">
+            <a href="../themes/default/assets/co-barter-detail.html">
                 <img src="{{ asset('themes/default/assets/images/item/co-3.jpg') }}" />
                 <div class="co-tel">โทร. 084-680-8666</div>
             </a>

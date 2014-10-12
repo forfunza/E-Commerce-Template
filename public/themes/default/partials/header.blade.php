@@ -11,7 +11,7 @@
                 <li><a href="#" class="ins-icon">Amed Instragram</a></li>
                 <li><a href="#" class="socialcam-icon">Amed Socialcam</a></li>
                 <li><a href="#" class="yt-icon">Amed Youtube</a></li>
-                <li><a href="#" class="line-icon">Amed Line</a></li>
+                <li><a href="../themes/default/assets/line.html" class="line-icon">Amed Line</a></li>
             </ul>
         </div>
     </div>

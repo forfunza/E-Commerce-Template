@@ -74,6 +74,9 @@ footer{
 	.pro-item-left{
 		float:left;
 		}
+	.main-menu{
+		height:32px;
+		}
 	}
 @media only screen and (max-width : 750px){
 	.hp-right{
@@ -170,6 +173,13 @@ width: 44%;
 				}
 			.co-block{
 				width: 45.35%;
+				}
+			.line-block{
+				float:none;
+				width:auto;
+				}
+			.linephone{
+				display:none;
 				}
 			
 }

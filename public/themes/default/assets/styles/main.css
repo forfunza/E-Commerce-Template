@@ -125,7 +125,7 @@ margin-bottom: 10px;
 	margin-left:3px;
 	}
 .slider-header{
-	max-width:1280px;
+	max-width:940px;
 	margin:0 auto;
 	margin-top:1px;
 	}
@@ -140,6 +140,11 @@ margin-bottom: 10px;
 	position:relative;
 	z-index:9999;
 	margin-bottom:20px;
+	}
+.header-area{
+	background: url(../images/footer.png) repeat center;
+	padding-top:10px;
+	margin-top:1px;
 	}
 .h-review-vdo{
 	width:332px;

@@ -10,10 +10,10 @@
                 <li><a href="#" class="fb-icon">Amed Facebook</a></li>
                 <li><a href="#" class="ins-icon">Amed Instragram</a></li>
                 <li><a href="#" class="socialcam-icon">Amed Socialcam</a></li>
-                <li><a href="#" class="line-icon">Amed Line</a></li>
                 <li><a href="#" class="yt-icon">Amed Youtube</a></li>
+                <li><a href="#" class="line-icon">Amed Line</a></li>
             </ul>
         </div>
     </div>
-    <div class="slider-header center"><img src="{{ asset('themes/default/assets/images/top-banner.jpg') }}" /></div>
+    <div class="header-area"><div class="slider-header center"><img src="{{ asset('themes/default/assets/images/header-main.png') }}" /></div></div>
 </header>

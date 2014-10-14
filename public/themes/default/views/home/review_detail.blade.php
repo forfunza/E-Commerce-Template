@@ -18,7 +18,7 @@
                     <div class="colLeft"><img src="{{ asset('themes/default/assets/images/ig-i.jpg') }}" /> Instagram</div>
                     <div class="colRight">{{ $review->instagram }}</div>
                     <div class="colLeft"><img src="{{ asset('themes/default/assets/images/line-i.jpg') }}" /> Line</div>
-                    <div class="colRight">{{ $review->line }}</div>
+                    <div class="colRight"> {{ $review->line }}</div>
                     <div class="colLeft">Website</div>
                     <div class="colRight"><a href="#">{{ $review->website }}</a></div>
                     <div class="clear"></div>

@@ -13,7 +13,7 @@
                       <input type="password" name="pass" placeholder="Password"/>
                       <input type="submit" name="submit" value="Sign In" />
                   </form>
-                  <div class="forgot-pass"><a href="#">Forgot password / ลืมรหัสผ่าน</a></div>
+                  <div class="forgot-pass"><a href="../themes/default/assets/register.html">Register / สมัครสมาชิก</a> | <a href="#">Forgot password / ลืมรหัสผ่าน</a></div>
                   
                   
               </div>

@@ -1006,7 +1006,10 @@ a.pro-btn,.submit,.reset{
 	clear:both;
 	}
 .prod-right .colRight{
+	min-height:41px;
 	overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
 	}
 .dot-line{
 	height:4px;
@@ -1322,4 +1325,10 @@ a.pro-item .pro-item-caption{
 	border-radius: 5px;
 	border:1px solid #ccc;
 	margin-bottom:20px;
+	}
+input[type="text"].short{
+	width:49%;
+	}
+input[type="text"].short:first-child{
+	margin-right:3px;
 	}

@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 
-class AddProductsTable extends Migration {
+class AddStockToProductsTable extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -14,11 +14,6 @@ class AddProductsTable extends Migration {
 	{
 		Schema::table('products', function(Blueprint $table)
 		{
-			if (Schema::hasColumn('quantity'))
-			{
-			   $table->dropColumn('quantity');
-			}
-			
 			$table->tinyInteger('stock')->default(1)->after('best_sell');
 		});
 	}

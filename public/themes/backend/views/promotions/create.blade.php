@@ -46,7 +46,7 @@
                         </span>
 
                     </div>
-                    @if(isset($errors->first('expire')))
+                    @if($errors->first('expire'))
                     <p class="help-block">{{ $errors->first('expire') }}</p>
                     @endif
                 </div>

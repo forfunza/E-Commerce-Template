@@ -30,7 +30,7 @@
     @if($category_services)
     @foreach ($category_services as $key => $category) 
     <ul>
-        <li><a href="#">{{ $category->name }} <span><img src="{{ $category->image ? $category->image : 'http://placehold.it/187x140&text=Image' }}" /></span></a></li>
+        <li><a href="{{ action('HomeController@service_detail',$category->id) }}">{{ $category->name }} <span><img src="{{ $category->image ? $category->image : 'http://placehold.it/187x140&text=Image' }}" /></span></a></li>
         
     </ul>
     @endforeach

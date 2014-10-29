@@ -13,7 +13,7 @@
                     </div>
                 </a>
                 <div class="clear"></div>
-                <a href="#" class="cart-btn">หยิบใส่ตระกร้า</a>
+                <a href="{{ action('HomeController@product_detail',$product->id) }}" class="cart-btn">หยิบใส่ตระกร้า</a>
                 <div class="clear"></div>
             </div>
             @endforeach
@@ -99,7 +99,7 @@
                     </div>
                 </a>
                 <div class="clear"></div>
-                <a href="#" class="cart-btn">หยิบใส่ตระกร้า</a>
+                <a href="{{ action('HomeController@product_detail',$product->id) }}" class="cart-btn">หยิบใส่ตระกร้า</a>
                 <div class="clear"></div>
             </div>
             @endforeach

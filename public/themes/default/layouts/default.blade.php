@@ -46,7 +46,7 @@ $('#addcart').click(function(){
 
     $.ajax({
       type: "POST",
-      url: "amedclinic/public/add",
+      url: "/add",
       data: { qty: $('#spinner').val(), id : $('#product_id').val() }
     })
       .done(function( data ) {

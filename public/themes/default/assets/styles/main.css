@@ -470,7 +470,7 @@ overflow: hidden;
 	overflow: hidden;
 	}
 .hp-left .item-caption{
-	height: 110px;
+	min-height: 70px;
 }
 a.cart-btn{
 	background:url(../images/cart-icon.jpg) no-repeat left;

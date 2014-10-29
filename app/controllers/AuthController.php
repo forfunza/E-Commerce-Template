@@ -57,7 +57,16 @@ class AuthController extends AdminController {
 		    return Redirect::action('AuthController@index')->with('message','User is banned.');
 		}
 
-		return Redirect::action('ProductsController@index');
+		if ($user->hasAccess('admin'))
+	    {
+	        return Redirect::action('ProductsController@index');
+	    }
+	    else
+	    {
+	        return Redirect::action('AuthController@index')->with('message','User was not found.');
+	    }
+
+		
 	}
 
 	public function logout()
@@ -77,6 +86,12 @@ class AuthController extends AdminController {
 		        'password'  => 'admin',
 		        'activated' => true,
 		    ));
+
+		     // Find the group using the group id
+		    $AdminGroup = Sentry::findGroupById(1);
+
+		    // Assign the group to the user
+		    $user->addGroup($AdminGroup);
 
 		    
 		}

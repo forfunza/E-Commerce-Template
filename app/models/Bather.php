@@ -4,10 +4,10 @@ class Bather extends \Eloquent {
 
 	// Add your validation rules here
 	public static $rules = [
-		// 'title' => 'required'
+		'expire' => 'required'
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = [];
+	protected $fillable = ['image','name','tel','description','dealer','dealer_price','amed_price','expire'];
 
 }

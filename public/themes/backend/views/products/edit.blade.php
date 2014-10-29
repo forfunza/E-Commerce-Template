@@ -3,7 +3,7 @@
 		<header class="panel-heading">
 			Products
 			<div class="pull-right">
-				<button type="submit" class="btn btn-primary">Save</button>
+				<button type="submit" class="btn btn-primary">Edit</button>
 			</div>
 			<div class="clearfix"></div>
 		</header>
@@ -33,7 +33,12 @@
 				</div>
 				
 			</div>
-
+			<div class="form-group">
+	                <label class="control-label col-md-2">Image(optional)</label>
+	                <div class="col-md-4">
+	                    <input type="file" name="image_add[]" class="default" multiple />
+	                </div>
+	            </div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Category</label>
 				<div class="col-sm-6">
@@ -69,9 +74,25 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Quantity</label>
+				<label class="col-sm-2 control-label">Price</label>
 				<div class="col-sm-6">
-					<input name="quantity" value="{{ $product->quantity }}" type="number" class="form-control" required>
+					<input name="price" value="{{ $product->price }}" type="number" class="form-control" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Stock</label>
+				<div class="col-sm-6">
+					<select name="stock" class="form-control">
+						<option value="1" {{ $product->stock == 1 ? 'selected' : '' }}>In Stock</option>
+						<option value="2" {{ $product->stock == 2 ? 'selected' : '' }}>Pre-Order</option>
+						<option value="3" {{ $product->stock == 3 ? 'selected' : '' }}>Out of Stock</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Best Seller</label>
+				<div class="col-sm-6">
+					<input name="best_sell" {{ $product->best_sell ? 'checked' : '' }} type="checkbox" class="form-control"/>
 				</div>
 			</div>
 		</div>

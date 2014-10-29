@@ -1,39 +1,20 @@
 <section>
 			<div class="ccol-left">
             	<div class="contact-top-img"><img src="{{ asset('themes/default/assets/images/contact-img.jpg') }}" /></div>
+
+                @if($branches)
+                @foreach ($branches as $branch)
                 <div class="loaction-block">
-                	<div class="map-right"><a href="../themes/default/assets/mapview.html"><img src="{{ asset('themes/default/assets/images/map-1.jpg') }}"></a></div>
-                    <h3>สาขาสีลม</h3>
+                	<div class="map-right"><a href="{{ action('HomeController@branch',$branch->id) }}"><img src="{{ $branch->image }}"></a></div>
+                    <h3>{{ $branch->name }}</h3>
                     <div class="local-caption">
-                    	<span>ใกล้ BTS ศาลาแดง ทางออกที่ 1 ชั้น 4 อาคารดวงทิพย์ ถนนสีลม</span>
-                        <span>TEL : 02-266-9968</span>
-                        <span>MOBILE : 084-353-1353</span>
-                        <span class="click-right"><a href="../themes/default/assets/mapview.html">► คลิ๊กเพื่อดูรายละเอียด</a></span>
+                    	{{ $branch->description }}
+                        <span class="click-right"><a href="{{ action('HomeController@branch',$branch->id) }}">► คลิ๊กเพื่อดูรายละเอียด</a></span>
                     </div>
                     <div class="clear"></div>
                 </div>
-                <div class="loaction-block">
-                	<div class="map-right"><a href="../themes/default/assets/mapview.html"><img src="{{ asset('themes/default/assets/images/map-2.jpg') }}"></a></div>
-                    <h3>สาขาทองหล่อ</h3>
-                    <div class="local-caption">
-                    	<span>ใกล้ BTS ทองหล่อ ทางออกที่ 3 ชั้นที่ 2 อาคาร FIFTY FITH PLAZA ทองหล่อ ซอย 2</span>
-                        <span>TEL : 02-381-0689</span>
-                        <span>MOBILE : 084-385-5335</span>
-                        <span class="click-right"><a href="../themes/default/assets/mapview.html">► คลิ๊กเพื่อดูรายละเอียด</a></span>
-                    </div>
-                    <div class="clear"></div>
-                </div>
-                <div class="loaction-block">
-                	<div class="map-right"><a href="../themes/default/assets/mapview.html"><img src="{{ asset('themes/default/assets/images/map-3.jpg') }}"></a></div>
-                    <h3>สาขาสยามฯ</h3>
-                    <div class="local-caption">
-                    	<span>BTS สยามฯ ทางออกที่ 2 ใกล้ DIGITAL GATEWAY สยามสแควร์ ซอย 3</span>
-                        <span>TEL : 02-658-0749</span>
-                        <span>MOBILE : 085-665-8686</span>
-                        <span class="click-right"><a href="../themes/default/assets/mapview.html">► คลิ๊กเพื่อดูรายละเอียด</a></span>
-                    </div>
-                    <div class="clear"></div>
-                </div>
+                @endforeach
+                @endif
             </div>
             <div class="ccol-right">
             	<h1>บริษัทเอเมด อินเตอร์เนชั่นแนล กรุ๊ป จำกัด</h1>

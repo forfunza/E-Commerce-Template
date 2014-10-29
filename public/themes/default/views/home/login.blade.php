@@ -8,12 +8,12 @@
                   <h2>Sing in / เข้าสู่ระบบ</h2>
                   <div class="connect-fb"><a href="#"><i class="fb-i"></i>Connect with Facebook</a></div>
                   <div class="clear or-txt">-OR-</div>
-                  <form action="#">
+                  {{ Form::open(array('action' => array('HomeController@authenticate'), 'method' => 'post')) }}
                       <input type="text" name="email" placeholder="E-mail"/>
-                      <input type="password" name="pass" placeholder="Password"/>
+                      <input type="password" name="password" placeholder="Password"/>
                       <input type="submit" name="submit" value="Sign In" />
-                  </form>
-                  <div class="forgot-pass"><a href="../themes/default/assets/register.html">Register / สมัครสมาชิก</a> | <a href="#">Forgot password / ลืมรหัสผ่าน</a></div>
+                  {{ Form::close() }}
+                  <div class="forgot-pass"><a href="{{ action('HomeController@register') }}">Register / สมัครสมาชิก</a> | <a href="#">Forgot password / ลืมรหัสผ่าน</a></div>
                   
                   
               </div>

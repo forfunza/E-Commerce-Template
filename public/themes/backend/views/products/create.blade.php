@@ -29,7 +29,12 @@
 				</div>
 				
 			</div>
-
+			<div class="form-group">
+                <label class="control-label col-md-2">Image(optional)</label>
+                <div class="col-md-4">
+                    <input type="file" name="image_add[]" class="default" multiple />
+                </div>
+            </div>
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Category</label>
 				<div class="col-sm-6">
@@ -65,9 +70,25 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-sm-2 control-label">Quantity</label>
+				<label class="col-sm-2 control-label">Price</label>
 				<div class="col-sm-6">
-					<input name="quantity" value="" type="number" class="form-control" required>
+					<input name="price" value="" type="number" class="form-control" required>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Stock</label>
+				<div class="col-sm-6">
+					<select name="stock" class="form-control">
+						<option value="1">In Stock</option>
+						<option value="2">Pre-Order</option>
+						<option value="3">Out of Stock</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Best Seller</label>
+				<div class="col-sm-6">
+					<input name="best_sell" type="checkbox" value="1" class="form-control"/>
 				</div>
 			</div>
 		</div>

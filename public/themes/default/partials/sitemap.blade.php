@@ -4,27 +4,26 @@
 <div class="tf-2">
 	<h3>Hot Service</h3>
 	<ul>
-		<li>- <a href="#">ดูดไขมัน Vaser</a></li>
-		<li>- <a href="#">Ulthera ยกกระชับใบหน้า</a></li>
-		<li>- <a href="#">เสริมหน้าอก</a></li>
-		<li>- <a href="#">เลเซอร์หน้าใส</a></li>
-		<li>- <a href="#">ทำหน้าเรียว</a></li>
-		<li>- <a href="#">ตัดปีกจมูก</a></li>
-		<li>- <a href="#">ฉีกผิวขาว</a></li>
-		<li>- <a href="#">จำกัดขนถาวร</a></li>
+	@if($services)
+		@foreach ($services as $service)
+		<li>- <a href="{{ action('HomeController@service_detail',$service->id) }}"> {{ $service->name }}</a></li>
+		@endforeach
+	@endif
 	</ul>
 </div>
 <div class="tf-3">
 	<h3>Location</h3>
 	<ul>
-		<li><a href="#">สาขาทองหล่อ</a> <a href="#" class="tf-map">Map</a></li>
-		<li><a href="#">สาขาสยามฯ</a> <a href="#" class="tf-map">Map</a></li>
-		<li><a href="#">สาขาสีลม</a> <a href="#" class="tf-map">Map</a></li>
+	@if($branches)
+		@foreach ($branches as $branch)
+		<li><a href="{{ action('HomeController@branch',$branch->id) }}">{{ $branch->name }}</a> <a href="{{ action('HomeController@branch',$branch->id) }}" class="tf-map">Map</a></li>
+		@endforeach
+	@endif
 	</ul>
-	<h3 class="margin-top-30">International</h3>
+	<!-- <h3 class="margin-top-30">International</h3>
 	<ul>
 		<li><a href="#">กัมพูชา</a> <a href="#" class="tf-map">Map</a></li>
-	</ul>
+	</ul> -->
 </div>
 <div class="tf-4">
 	<div class="sent-block">

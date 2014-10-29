@@ -128,6 +128,7 @@ return array(
 		'Teepluss\Theme\ThemeServiceProvider',
 		'Philo\Translate\TranslateServiceProvider',
 		'Way\Generators\GeneratorsServiceProvider',
+		'Gloudemans\Shoppingcart\ShoppingcartServiceProvider',
 
 	),
 
@@ -200,7 +201,7 @@ return array(
 		'LaravelLocalization'   => 'Mcamara\LaravelLocalization\Facades\LaravelLocalization',
 		'Notification' 		=> 'Krucas\Notification\Facades\Notification',
 		'Theme' 			=> 'Teepluss\Theme\Facades\Theme',
-
+		'Cart'            => 'Gloudemans\Shoppingcart\Facades\Cart',
 	),
 
 );

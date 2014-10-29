@@ -57,7 +57,7 @@
 			</div>
 			
 			
-            <div class="form-group {{ !empty($errors->first('expire')) ? 'has-error' : '' }}">
+            <div class="form-group {{ isset($errors->first('expire')) ? 'has-error' : '' }}">
                 <label class="control-label col-md-2">Expiration</label>
                 <div class="col-md-4">
                     <div class="input-group date form_datetime-component">

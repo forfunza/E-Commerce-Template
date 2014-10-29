@@ -46,7 +46,7 @@ $('#addcart').click(function(){
 
     $.ajax({
       type: "POST",
-      url: "<?php echo route('/add'); ?>",
+      url: "<?php echo url('/add'); ?>",
       data: { qty: $('#spinner').val(), id : $('#product_id').val() }
     })
       .done(function( data ) {

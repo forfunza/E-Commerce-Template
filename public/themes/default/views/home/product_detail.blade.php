@@ -20,7 +20,7 @@
         </div>
         <div class="prod-right">
             <div class="colLeft">รหัสสินค้า</div>
-            <div class="colRight">{{ $product->code }}</div>
+            <div class="colRight arial-font">{{ $product->code }}</div>
             <div class="colLeft">หมวดหมู่สินค้า</div>
             <div class="colRight">{{ $product->category->name }}</div>
             <div class="colLeft">สถานะสินค้า</div>

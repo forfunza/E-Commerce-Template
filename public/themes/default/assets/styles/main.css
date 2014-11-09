@@ -934,9 +934,11 @@ a.pro-btn,.submit,.reset{
 	cursor:pointer;
 	}
 .pro-item{
-	float:left;
-	margin:10px;
-	width:45%;
+	float: left;
+margin: 10px;
+width: 45%;
+height: 147px;
+overflow: hidden;
 	}
 .pro-item-left{
 	width:120px;
@@ -960,6 +962,10 @@ a.pro-btn,.submit,.reset{
 		}
 .pro-item-right h3{
 	color:#40547f;
+	margin-bottom: 5px;
+	}
+.pro-item-right,.pro-item-right a{
+	color:#333;
 	}
 .pro-item-left a{
 	color:#40547f;
@@ -1331,5 +1337,9 @@ input[type="text"].short{
 	}
 input[type="text"].short:first-child{
 	margin-right:3px;
+	}
+.arial-font{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:18px;
 	}
 	

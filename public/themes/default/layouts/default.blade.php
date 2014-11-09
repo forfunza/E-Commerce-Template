@@ -13,6 +13,9 @@
 {{ Theme::asset()->container('script-header')->scripts(); }}
 <link rel="shortcut icon" href="">
 {{ Theme::asset()->container('inline-header')->scripts(); }}
+ <script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "bf895fad-3cfa-4d32-b709-2f37f72ba4df", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 </head>
 <body>
 {{ Theme::partial('header') }}

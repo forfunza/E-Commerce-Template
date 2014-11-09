@@ -1,5 +1,5 @@
 <div class="tf-1">
-	<iframe src="http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Famedcenter&amp;width=265&amp;height=278&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true&amp;appId=278811578958877" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:265px; height:278px;" allowTransparency="true"></iframe>
+	<iframe src="http://www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2Fpages%2FAmed-Clinic-Official%2F285040311702681&amp;width=265&amp;height=278&amp;colorscheme=light&amp;show_faces=true&amp;header=true&amp;stream=false&amp;show_border=true&amp;appId=278811578958877" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:265px; height:278px;" allowTransparency="true"></iframe>
 </div>
 <div class="tf-2">
 	<h3>Hot Service</h3>

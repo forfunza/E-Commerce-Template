@@ -16,7 +16,7 @@ class RemoveQuantityFromProductsTable extends Migration {
 		{	
 			if (Schema::hasColumn('products','quantity'))
 			{
-			   $table->dropColumn('quantity');
+			   //$table->dropColumn('quantity');
 			}
 		});
 	}

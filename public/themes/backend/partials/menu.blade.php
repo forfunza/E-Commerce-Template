@@ -27,7 +27,7 @@
                 <ul class="sub">
                     <li><a href="{{ action('CategoriesController@index','entity=products') }}">Categories</a></li>
                     <li><a href="{{ action('ProductsController@index') }}">Product</a></li>
-                    <li><a href="#">Customer Review</a></li>
+                    <li><a href="{{ action('CustomerReviewsController@index') }}">Customer Review</a></li>
                 </ul>
             </li>
             <li class="sub-menu">
@@ -87,7 +87,7 @@
             </li>
 
             <li>
-                <a href="#">
+                <a href="{{ action('OrdersController@index') }}">
                     <i class="fa fa-bullhorn"></i>
                     <span>Order</span>
                 </a>

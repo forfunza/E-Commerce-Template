@@ -313,9 +313,12 @@ $container.imagesLoaded( function() {
     </script>');
 
 		$review = Review::findOrFail($id);
+
+		$reviews = Review::orderBy('updated_at','desc')->take(4)->get();
 		
 		$view = array(
-			'review' => $review
+			'review' => $review,
+			'reviews' => $reviews
 			);
 		return $this->theme->scope('home.review_detail', $view)->render();
 	}
@@ -366,8 +369,10 @@ $container.imagesLoaded( function() {
     });
     </script>');
 		$consult = Consult::findOrFail($id);
+		$bests = Product::where('best_sell',1)->get();
 		$view = array(
-			'consult' => $consult
+			'consult' => $consult,
+			'bests' => $bests
 			);
 		return $this->theme->scope('home.consult_detail', $view)->render();
 	}
@@ -411,9 +416,11 @@ $container.imagesLoaded( function() {
     </script>');
 		$service = Service::findOrFail($id);
 		$services = Service::all();
+		$hot_promotion = Promotion::orderBy('seller','desc')->take(4)->get();
 		$view = array(
 			'service' => $service,
-			'services' => $services
+			'services' => $services,
+			'hot_promotion' => $hot_promotion
 			);
 		return $this->theme->scope('home.service_detail', $view)->render();
 	}
@@ -463,11 +470,13 @@ $container.imagesLoaded( function() {
 	
     });
     </script>');
+		$customer_review = CustomerReview::orderBy('updated_at','desc')->take(4)->get();
 		$categories = Category::where('entity_id',2)->get();
 		$bests = Product::where('best_sell',1)->get();
 		$view = array(
 			'categories' => $categories,
-			'bests' => $bests
+			'bests' => $bests,
+			'customer_review' => $customer_review
 			);
 		return $this->theme->scope('home.product', $view)->render();
 	}
@@ -509,6 +518,7 @@ $container.imagesLoaded( function() {
 
 	public function promotion()
 	{
+		$this->theme->asset()->container('script-header')->usePath()->add('countdown', 'js/jquery.countdown.min.js', array('jquery'));
 		$this->theme->asset()->container('inline-footer')->writeContent('promotion','<script>
 	    $(document).ready(function() {
 	      var owl = $(".owl-item");
@@ -637,8 +647,10 @@ $container.imagesLoaded( function() {
 		});
     </script>');
 		$branches = Branch::all();
+		$contact = Contact::find(1);
 		$view = array(
-			'branches' => $branches
+			'branches' => $branches,
+			'contact' => $contact
 			);
 		return $this->theme->scope('home.contact', $view)->render();
 	}
@@ -666,8 +678,10 @@ $container.imagesLoaded( function() {
 
 	public function cart()
 	{
+		$contact = Contact::find(1);
 		$view = array(
-			'products' => Cart::content()
+			'products' => Cart::content(),
+			'contact' => $contact
 			);
 
 		//dd(Cart::content());
@@ -734,27 +748,85 @@ $container.imagesLoaded( function() {
 		if(Sentry::check())
 		{
 			$access = Sentry::getUser()->hasAccess('user');
-			$user =  Sentry::getUser();
+			if($access)
+				$user =  Sentry::getUser();
 		}
-
-		
-		
-		
+		$contact = Contact::find(1);
 			
 
 		$view = array(
-			'user' => $user
+			'user' => $user,
+			'contact' => $contact
 			);
 		return $this->theme->scope('home.checkout_1', $view)->render();
 	}
 
 	public function checkout_2()
 	{
+		//dd(Input::all());
+		$contact = Contact::find(1);
 
+		Session::put('input',Input::get());
+		
 		$view = array(
-			'input' => Input::all()
+			'input' => Input::get(),
+			'contact' => $contact,
+			'products' => Cart::content()
 			);
 		return $this->theme->scope('home.checkout_2', $view)->render();
+	}
+
+	public function checkout_3()
+	{
+		$user = array();
+		if(Sentry::check())
+		{
+			$access = Sentry::getUser()->hasAccess('user');
+			if($access)
+				$user =  Sentry::getUser();
+		}
+		
+		$contact = Contact::find(1);
+		$dt = new DateTime;
+
+		$order = Order::create([
+				'user_id' => '1',
+				'invoice_id' => Date('Ymd').$dt->getTimestamp(),
+				'order_status' => '1',
+				'email' => Session::get('input')['email'],
+				'firstname' => Session::get('input')['name'],
+				'tel' => Session::get('input')['telephone'],
+				'building' => Session::get('input')['building'],
+				'room' => Session::get('input')['room'],
+				'floor' => Session::get('input')['floor'],
+				'no' => Session::get('input')['houseno'],
+				'moo' => Session::get('input')['moo'],
+				'mooban' => Session::get('input')['village'],
+				'soi' => Session::get('input')['soi'],
+				'road' => Session::get('input')['road'],
+				'sub_district' => Session::get('input')['subdistrict'],
+				'district' => Session::get('input')['district'],
+				'province' => Session::get('input')['province'],
+				'postcode' => Session::get('input')['zipcode']
+			]);
+
+		
+
+		foreach (Cart::content() as $product) {
+			OrderProduct::create([
+				'order_id' => $order->id,
+				'product_id' => $product->id,
+				'price' => $product->price,
+				'qty' => $product->qty,
+				'total' => $product->price * $product->qty
+
+				]);
+		}
+
+		$view = array(
+			'contact' => $contact,
+			);
+		return $this->theme->scope('home.checkout_3', $view)->render();
 	}
 
 }

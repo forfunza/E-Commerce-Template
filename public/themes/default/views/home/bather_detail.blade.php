@@ -24,7 +24,7 @@
             <div class="colLeft">ราคาของโปรโมชั่นของดีลเลอร์</div>
             <div class="colRight">{{ $bather->dealer_price }}</div>
             <div class="colLeft">ราคาของที่ได้จาก Amed Clinic</div>
-            <div class="colRight"><span class="num-rate">{{ $bather->amed_price }}</span><span class="red-txt">บาท</span></div>
+            <div class="colRight"><span class="num-rate">{{ number_format($bather->amed_price) }}</span><span class="red-txt">บาท</span></div>
             <div class="clear"></div>
             <div class="dot-line"></div>
 

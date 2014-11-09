@@ -28,53 +28,28 @@
            <div style="height:30px;"></div>
         </section>
         
+
+        @if($reviews)
         <section>
             <h2><i class="tl"></i><span>วีดีโอ อื่น ๆ ที่เกี่ยวข้อง</span><i class="tr"></i></h2>
             <div class="product-block">
             	<div id="owl-item" class="owl-item owl-carousel">
+                @foreach ($reviews as $tmp)
+                 
                 <div class="item">
-                	<a href="#">
-                	<div class="item-thumbnail"><img src="{{ asset('themes/default/assets/images/service/service-1.jpg') }}" /></div>
-                    <h3>blemish soothing one week program</h3>
+                	<a href="{{ action('HomeController@review_detail',$tmp->id) }}">
+                	<div class="item-thumbnail"><img src="{{ $tmp->image }}" /></div>
+                    <h3>{{ $tmp->name }}</h3>
                     <div class="item-caption">
-                    	ปกติการทำ e-Matrix จะเห็นผลชัดมาก ๆ ต้องทำอย่างน้อง 3-5 ครั้งคะ นี่เป็นเพียงผลจากการทำครั้งแรกนะคะ ถามว่าคุ้มไหมกับการต้องจ่ายแพงกว่า การทำเลเซอรแบบอื่น เราว่าค้มนะ เพราะแผลเว้กมาก สะเก็ดเล็กมากจริง ๆ
+                    	{{ str_limit($tmp->description, $limit = 70, $end = '') }}
                     </div>
                     <div class="clear"></div>
                     </a>
                 </div>
-                <div class="item">
-                <a href="#">
-                	<div class="item-thumbnail"><img src="{{ asset('themes/default/assets/images/service/service-2.jpg') }}" /></div>
-                    <h3>Matrix renew stem serum</h3>
-                    <div class="item-caption">
-                    	ปกติการทำ e-Matrix จะเห็นผลชัดมาก ๆ ต้องทำอย่างน้อง 3-5 ครั้งคะ นี่เป็นเพียงผลจากการทำครั้งแรกนะคะ ถามว่าคุ้มไหมกับการต้องจ่ายแพงกว่า การทำเลเซอรแบบอื่น เราว่าค้มนะ เพราะแผลเว้กมาก สะเก็ดเล็กมากจริง ๆ
-                    </div>
-                    <div class="clear"></div>
-                    </a>
-                </div>
-                <div class="item">
-                <a href="#">
-                	<div class="item-thumbnail"><img src="{{ asset('themes/default/assets/images/service/service-3.jpg') }}" /></div>
-                    <h3>blemish soothing one week program</h3>
-                    <div class="item-caption">
-                    	ปกติการทำ e-Matrix จะเห็นผลชัดมาก ๆ ต้องทำอย่างน้อง 3-5 ครั้งคะ นี่เป็นเพียงผลจากการทำครั้งแรกนะคะ ถามว่าคุ้มไหมกับการต้องจ่ายแพงกว่า การทำเลเซอรแบบอื่น เราว่าค้มนะ เพราะแผลเว้กมาก สะเก็ดเล็กมากจริง ๆ
-                    </div>
-                    <div class="clear"></div>
-                    </a>
-                </div>
-				 <div class="item">
-                 <a href="#">
-                	<div class="item-thumbnail"><img src="{{ asset('themes/default/assets/images/service/service-4.jpg') }}" /></div>
-                    <h3>Matrix renew stem serum</h3>
-                    <div class="item-caption">
-                    	ปกติการทำ e-Matrix จะเห็นผลชัดมาก ๆ ต้องทำอย่างน้อง 3-5 ครั้งคะ นี่เป็นเพียงผลจากการทำครั้งแรกนะคะ ถามว่าคุ้มไหมกับการต้องจ่ายแพงกว่า การทำเลเซอรแบบอื่น เราว่าค้มนะ เพราะแผลเว้กมาก สะเก็ดเล็กมากจริง ๆ
-                    </div>
-                    <div class="clear"></div>
-                    </a>
-                </div>
+                @endforeach
               </div>
              
             </div>
-           	
             
         </section>
+        @endif

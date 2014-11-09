@@ -1,4 +1,4 @@
-{{ Form::open(array('action' => array('CareersController@store'), 'method' => 'post', 'class' => 'form-horizontal bucket-form') }}
+{{ Form::open(array('action' => array('CareersController@store'), 'method' => 'post', 'class' => 'form-horizontal bucket-form')) }}
 	<section class="panel">
 		<header class="panel-heading">
 			Career

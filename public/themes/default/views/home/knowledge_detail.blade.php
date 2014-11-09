@@ -18,7 +18,7 @@
         <div class="all-service">
             <ul>
                 @foreach ($service_category as $category)
-                <li><a href="inn-knowledge.html" >{{ $category->name }}</a></li>
+                <li><a href="{{ action('HomeController@service_categories',$category->id) }}" >{{ $category->name }}</a></li>
                 @endforeach
                 
             </ul>

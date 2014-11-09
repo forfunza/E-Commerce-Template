@@ -14,7 +14,7 @@ class AddStockToProductsTable extends Migration {
 	{
 		Schema::table('products', function(Blueprint $table)
 		{
-			$table->tinyInteger('stock')->default(1)->after('best_sell');
+			//$table->tinyInteger('stock')->default(1)->after('best_sell');
 		});
 	}
 

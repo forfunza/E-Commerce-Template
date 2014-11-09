@@ -38,6 +38,8 @@ function()
     Route::resource('websites', 'WebsitesController');
     Route::resource('slideshows', 'SlideshowsController');
     Route::resource('careers', 'CareersController');
+    Route::resource('orders', 'OrdersController');
+    Route::resource('customer_reviews', 'CustomerReviewsController');
 });
 
 
@@ -89,5 +91,6 @@ Route::post('/add', 'HomeController@cart_add');
 Route::get('/remove/{id}', 'HomeController@cart_remove');
 Route::get('/checkout-1', 'HomeController@checkout_1');
 Route::post('/checkout-2', 'HomeController@checkout_2');
+Route::get('/checkout-3', 'HomeController@checkout_3');
 
 

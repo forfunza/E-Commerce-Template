@@ -71,6 +71,8 @@ return array(
             $theme->asset()->usePath()->add('owl.theme', 'styles/owl.theme.css',array('main'));
             $theme->asset()->usePath()->add('styles-tab', 'styles/styles-tab.css',array('main'));
 
+           
+
 
 
             $theme->asset()->usePath()->add('jquery-flexnav', 'js/jquery.flexnav.js');
@@ -85,8 +87,44 @@ return array(
             $theme->asset()->container('script-header')->usePath()->add('chrome', 'js/jquery.mobile.customized.min.js', array('jquery'));
             $theme->asset()->container('script-header')->usePath()->add('menu', 'js/jquery.easing.1.3.js', array('jquery'));
             
+            
+
+            if ( Sentry::check())
+            {
+                $user =  Sentry::getUser();
 
 
+                if ($user->hasAccess('user'))
+                {
+                    
+                    $theme->partialComposer('header', function($view)
+                    {
+                        $view->with('users',Sentry::getUser());
+                    });
+                }
+            }
+
+            //$website = Website::find(1);
+            $theme->partialComposer('header', function($view)
+            {
+                $view->with('website',Website::find(1));
+            });
+
+            $theme->partialComposer('footer', function($view)
+            {
+                $view->with('website',Website::find(1));
+                
+            });
+
+            $theme->partialComposer('sitemap', function($view)
+            {
+                $view->with('branches',Branch::all());
+                $view->with('services',Service::orderBy('updated_at','desc')->take(8)->get());
+            });
+
+
+
+            //dd($website);
            
             //Partial composer.
             $theme->partialComposer('menu', function($view)

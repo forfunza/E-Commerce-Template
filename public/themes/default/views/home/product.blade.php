@@ -13,7 +13,7 @@
                     </div>
                 </a>
                 <div class="clear"></div>
-                <a href="#" class="cart-btn">หยิบใส่ตระกร้า</a>
+                <a href="{{ action('HomeController@product_detail',$product->id) }}" class="cart-btn">หยิบใส่ตระกร้า</a>
                 <div class="clear"></div>
             </div>
             @endforeach
@@ -21,7 +21,7 @@
     </div>
 </section>
 @endif
-<section>
+<!-- <section>
     <h2><i class="tl"></i><span>Costumer review</span><i class="tr"></i></h2>
     <div class="product-block">
         <div id="owl-item" class="owl-item owl-carousel">
@@ -81,7 +81,7 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 @if($categories)
 @foreach ($categories as $category)
 <section>
@@ -99,7 +99,7 @@
                     </div>
                 </a>
                 <div class="clear"></div>
-                <a href="#" class="cart-btn">หยิบใส่ตระกร้า</a>
+                <a href="{{ action('HomeController@product_detail',$product->id) }}" class="cart-btn">หยิบใส่ตระกร้า</a>
                 <div class="clear"></div>
             </div>
             @endforeach

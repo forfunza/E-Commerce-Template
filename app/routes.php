@@ -35,6 +35,9 @@ function()
     Route::resource('news', 'NewsController');
     Route::resource('contacts', 'ContactsController');
     Route::resource('branches', 'BranchesController');
+    Route::resource('websites', 'WebsitesController');
+    Route::resource('slideshows', 'SlideshowsController');
+    Route::resource('careers', 'CareersController');
 });
 
 
@@ -54,6 +57,12 @@ function()
 
 Route::get('/', 'HomeController@index');
 Route::get('/login', 'HomeController@login');
+Route::get('/logout', 'HomeController@logout');
+Route::get('/line', 'HomeController@line');
+Route::get('/register', 'HomeController@register');
+Route::get('/group/{group}', 'HomeController@group');
+Route::post('/register', 'HomeController@handle_register');
+Route::post('/auth', 'HomeController@authenticate');
 Route::get('/aboutus', 'HomeController@aboutus');
 Route::get('/knowledge', 'HomeController@knowledge');
 Route::get('/knowledge/{id}', 'HomeController@knowledge_detail');
@@ -70,6 +79,15 @@ Route::get('/product/{id}', 'HomeController@product_detail');
 Route::get('/promotion', 'HomeController@promotion');
 Route::get('/before-after', 'HomeController@before');
 Route::get('/co-bather', 'HomeController@bather');
+Route::get('/co-bather/{id}', 'HomeController@bather_detail');
 Route::get('/news', 'HomeController@news');
 Route::get('/contact-us', 'HomeController@contact');
+Route::get('/branch/{id}', 'HomeController@branch');
 Route::get('/career', 'HomeController@career');
+Route::get('/cart', 'HomeController@cart');
+Route::post('/add', 'HomeController@cart_add');
+Route::get('/remove/{id}', 'HomeController@cart_remove');
+Route::get('/checkout-1', 'HomeController@checkout_1');
+Route::post('/checkout-2', 'HomeController@checkout_2');
+
+

@@ -10,8 +10,8 @@ class ProductsTableSeeder extends Seeder {
 		$faker = Faker::create();
 
 		$image = array(
-			'1' => 'http://www.coolspacelab.com/amedclinic/public/farms/images/products/1412037087.jpg',
-			'2' => 'http://www.coolspacelab.com/amedclinic/public/farms/images/products/1412036820.jpg'
+			'1' => 'http://www.coolspacelab.com/amed/public/farms/images/products/1412037087.jpg',
+			'2' => 'http://www.coolspacelab.com/amed/public/farms/images/products/1412036820.jpg'
 			);
 
 		foreach(range(1, 40) as $index)

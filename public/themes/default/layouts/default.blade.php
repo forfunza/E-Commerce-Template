@@ -40,5 +40,22 @@
 
 
 {{ Theme::asset()->container('footer')->scripts(); }}
+<script type="text/javascript">
+    
+$('#addcart').click(function(){
+
+    $.ajax({
+      type: "POST",
+      url: "<?php echo url('/add'); ?>",
+      data: { qty: $('#spinner').val(), id : $('#product_id').val() }
+    })
+      .done(function( data ) {
+            $('#cart-qty').html(data.count);
+            alert('เพิ่มสินค้าใส่ตระกร้าแล้ว');
+      });
+    //alert($('#spinner').val());
+});
+
+</script>
 </body>
 </html>

@@ -12,7 +12,8 @@
 		"philo/laravel-translate": "dev-master",
 		"teepluss/theme": "dev-master",
 		"way/generators": "~2.0",
-		"fzaninotto/faker": "dev-master"
+		"fzaninotto/faker": "dev-master",
+		"gloudemans/shoppingcart": "~1.2"
 	},
 	"autoload": {
 		"classmap": [

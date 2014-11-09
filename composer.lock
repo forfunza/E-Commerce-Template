@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "85a938ae3a211a5031a7ad2dbbcbe649",
+    "hash": "61b74e9efca00576c1385c159cf462c4",
     "packages": [
         {
             "name": "cartalyst/sentry",
@@ -301,12 +301,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "1ce76e851997c7ac51d7f76e5b4cd01ae50e607f"
+                "reference": "b6d383161d84092a7a9f5b14db6e2637edbd3a6e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/1ce76e851997c7ac51d7f76e5b4cd01ae50e607f",
-                "reference": "1ce76e851997c7ac51d7f76e5b4cd01ae50e607f",
+                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/b6d383161d84092a7a9f5b14db6e2637edbd3a6e",
+                "reference": "b6d383161d84092a7a9f5b14db6e2637edbd3a6e",
                 "shasum": ""
             },
             "require": {
@@ -343,7 +343,51 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2014-10-01 07:35:35"
+            "time": "2014-10-14 14:30:56"
+        },
+        {
+            "name": "gloudemans/shoppingcart",
+            "version": "1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Crinsane/LaravelShoppingcart.git",
+                "reference": "909d54baa6fe9ec76bbbe518de63217eb3c40b0f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Crinsane/LaravelShoppingcart/zipball/909d54baa6fe9ec76bbbe518de63217eb3c40b0f",
+                "reference": "909d54baa6fe9ec76bbbe518de63217eb3c40b0f",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~4",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Gloudemans\\Shoppingcart": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Gloudemans",
+                    "email": "Rob_Gloudemans@hotmail.com"
+                }
+            ],
+            "description": "Laravel 4 Shoppingcart",
+            "keywords": [
+                "laravel",
+                "shoppingcart"
+            ],
+            "time": "2014-08-22 09:00:06"
         },
         {
             "name": "intervention/image",
@@ -490,24 +534,24 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v4.2.9",
+            "version": "v4.2.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "14665bc3c38c3ec24a12c904d013a663dc4a1d8f"
+                "reference": "e29253c7f29e3b1ca716de7fe309b272e3ddf47d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/14665bc3c38c3ec24a12c904d013a663dc4a1d8f",
-                "reference": "14665bc3c38c3ec24a12c904d013a663dc4a1d8f",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/e29253c7f29e3b1ca716de7fe309b272e3ddf47d",
+                "reference": "e29253c7f29e3b1ca716de7fe309b272e3ddf47d",
                 "shasum": ""
             },
             "require": {
-                "classpreloader/classpreloader": "~1.0",
+                "classpreloader/classpreloader": "~1.0.2",
                 "d11wtq/boris": "~1.0",
                 "filp/whoops": "1.1.*",
                 "ircmaxell/password-compat": "~1.0",
-                "jeremeamia/superclosure": "~1.0",
+                "jeremeamia/superclosure": "~1.0.1",
                 "monolog/monolog": "~1.6",
                 "nesbot/carbon": "~1.0",
                 "patchwork/utf8": "1.1.*",
@@ -601,20 +645,20 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2014-09-15 02:45:24"
+            "time": "2014-10-04 18:48:27"
         },
         {
             "name": "mcamara/laravel-localization",
-            "version": "0.14.8",
+            "version": "0.14.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mcamara/laravel-localization.git",
-                "reference": "5c0db3a3a15faf8b7da3143fb71a888905cccc14"
+                "reference": "83013e3f53802dbdc139b872dbc5a3add33d3337"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/5c0db3a3a15faf8b7da3143fb71a888905cccc14",
-                "reference": "5c0db3a3a15faf8b7da3143fb71a888905cccc14",
+                "url": "https://api.github.com/repos/mcamara/laravel-localization/zipball/83013e3f53802dbdc139b872dbc5a3add33d3337",
+                "reference": "83013e3f53802dbdc139b872dbc5a3add33d3337",
                 "shasum": ""
             },
             "require": {
@@ -651,7 +695,7 @@
                 "localization",
                 "php"
             ],
-            "time": "2014-09-30 12:34:40"
+            "time": "2014-10-08 10:22:06"
         },
         {
             "name": "monolog/monolog",
@@ -1153,20 +1197,20 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.2.2",
+            "version": "v5.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "e02f71a35436af4bd58a1bd90116089e632e29e1"
+                "reference": "b86b927dfefdb56ab0b22d1350033d9a38e9f205"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/e02f71a35436af4bd58a1bd90116089e632e29e1",
-                "reference": "e02f71a35436af4bd58a1bd90116089e632e29e1",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/b86b927dfefdb56ab0b22d1350033d9a38e9f205",
+                "reference": "b86b927dfefdb56ab0b22d1350033d9a38e9f205",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.4"
+                "php": ">=5.3.3"
             },
             "require-dev": {
                 "mockery/mockery": "~0.9.1"
@@ -1174,7 +1218,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "5.2-dev"
+                    "dev-master": "5.3-dev"
                 }
             },
             "autoload": {
@@ -1201,7 +1245,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2014-09-20 07:17:36"
+            "time": "2014-10-04 05:53:18"
         },
         {
             "name": "symfony/browser-kit",
@@ -1986,12 +2030,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/teepluss/laravel4-theme.git",
-                "reference": "de673a834c3932e15c9ba928558894108922870d"
+                "reference": "cd414e17e97923ad8de0af18ba966ff5615af6d8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/teepluss/laravel4-theme/zipball/de673a834c3932e15c9ba928558894108922870d",
-                "reference": "de673a834c3932e15c9ba928558894108922870d",
+                "url": "https://api.github.com/repos/teepluss/laravel4-theme/zipball/cd414e17e97923ad8de0af18ba966ff5615af6d8",
+                "reference": "cd414e17e97923ad8de0af18ba966ff5615af6d8",
                 "shasum": ""
             },
             "require": {
@@ -2014,9 +2058,7 @@
             "authors": [
                 {
                     "name": "Teepluss",
-                    "email": "admin@laravel.in.th",
-                    "homepage": "https://github.com/teepluss",
-                    "role": "Developer"
+                    "email": "admin@laravel.in.th"
                 }
             ],
             "description": "Theme will help you organize your themes inside Laravel 4 projects easily and maintain its related assets, layouts and partials for the theme in single directory.",
@@ -2030,7 +2072,7 @@
                 "twig",
                 "widget"
             ],
-            "time": "2014-07-15 09:28:02"
+            "time": "2014-10-08 04:37:56"
         },
         {
             "name": "twig/twig",

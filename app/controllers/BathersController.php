@@ -9,6 +9,12 @@ class BathersController extends \AdminController {
 	 */
 	public function index()
 	{
+		$this->theme->asset()->container('inline-script')->writeScript('EditableTable', '
+	    	jQuery(document).ready(function() {
+	       		EditableTable.init();
+	    	});
+		');
+		
 		$bathers = Bather::all();
 
 		$view = array(
@@ -42,9 +48,60 @@ class BathersController extends \AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		Bather::create($data);
+		$bather = Bather::create(array(
+					'name' => $data['name'],
+					'dealer' => $data['dealer'],
+					'tel' => $data['tel'],
+					'description' => $data['description'],
+					'dealer_price' => $data['dealer_price'],
+					'amed_price' => $data['amed_price'],
+					'expire' => strtotime($data['expire'])
+				));
 
-		return Redirect::action('BathersController@index')->with('message','');
+
+		if(Input::hasFile('image')){
+			
+			$dt = new DateTime;
+			$image = $dt->getTimestamp().'.'.Input::file('image')->getClientOriginalExtension();
+			$orig = Image::make(Input::file('image')->getRealPath());
+			$height = $orig->height();
+			if($height > 800){
+				$orig->resize(null, 800, function ($constraint) {
+				    $constraint->aspectRatio();
+				});
+			}
+			$orig->save('farms/images/'.$image);
+
+			$bather->update([
+					'image' => asset('farms/images/'.$image),
+				]);
+			
+		}
+
+		if(Input::hasFile('image_add')){
+			
+			foreach ($data['image_add'] as $key => $img) {
+				
+				$dt = new DateTime;
+				$image = $dt->getTimestamp().'-'. sha1($img->getClientOriginalName()).'.'.$img->getClientOriginalExtension();
+				$orig = Image::make($img->getRealPath());
+				$height = $orig->height();
+				if($height > 800){
+					$orig->resize(null, 800, function ($constraint) {
+					    $constraint->aspectRatio();
+					});
+				}
+				$orig->save('farms/images/'.$image);
+				BatherImage::create([
+					'images' => asset('farms/images/'.$image),
+					'bather_id' => $bather->id
+					]);
+				
+			}
+		}
+			
+
+		return Redirect::action('BathersController@index')->with('message','<strong>Success!</strong> Your content has been modified.');
 	}
 
 	/**
@@ -94,9 +151,63 @@ class BathersController extends \AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$bather->update($data);
+		
 
-		return Redirect::action('BathersController@index')->with('message','');
+		$bather->update([
+					'name' => $data['name'],
+					'dealer' => $data['dealer'],
+					'tel' => $data['tel'],
+					'description' => $data['description'],
+					'dealer_price' => $data['dealer_price'],
+					'amed_price' => $data['amed_price'],
+					'expire' => $data['expire']
+				]);
+
+
+		if(Input::hasFile('image')){
+			
+			$dt = new DateTime;
+			$image = $dt->getTimestamp().'.'.Input::file('image')->getClientOriginalExtension();
+			$orig = Image::make(Input::file('image')->getRealPath());
+			$height = $orig->height();
+			if($height > 800){
+				$orig->resize(null, 800, function ($constraint) {
+				    $constraint->aspectRatio();
+				});
+			}
+			$orig->save('farms/images/'.$image);
+
+			$bather->update([
+					'image' => asset('farms/images/'.$image),
+				]);
+			
+		}
+
+		if(Input::hasFile('image_add')){
+
+			BatherImage::where('bather_id', $bather->id)->delete();
+			
+			foreach ($data['image_add'] as $key => $img) {
+				
+				$dt = new DateTime;
+				$image = $dt->getTimestamp().'-'. sha1($img->getClientOriginalName()).'.'.$img->getClientOriginalExtension();
+				$orig = Image::make($img->getRealPath());
+				$height = $orig->height();
+				if($height > 800){
+					$orig->resize(null, 800, function ($constraint) {
+					    $constraint->aspectRatio();
+					});
+				}
+				$orig->save('farms/images/'.$image);
+				BatherImage::create([
+					'images' => asset('farms/images/'.$image),
+					'bather_id' => $bather->id
+					]);
+				
+			}
+		}
+
+		return Redirect::action('BathersController@index')->with('message','<strong>Success!</strong> Your content has been modified.');
 	}
 
 	/**
@@ -109,7 +220,7 @@ class BathersController extends \AdminController {
 	{
 		Bather::destroy($id);
 
-		return Redirect::action('BathersController@index')->with('message','');
+		return Redirect::action('BathersController@index')->with('message','<strong>Success!</strong> Your content has been modified.');
 	}
 
 }

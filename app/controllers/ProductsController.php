@@ -53,7 +53,6 @@ class ProductsController extends AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		
 
 		$product = Product::create(array(
 					'code' => $data['code'],
@@ -61,20 +60,50 @@ class ProductsController extends AdminController {
 					'highlight' => $data['highlight'],
 					'description' => $data['description'],
 					'category_id' => $data['category_id'],
-					'quantity' => $data['quantity']
+					'stock' => $data['stock'],
+					'best_sell' => $data['best_sell'] ?  $data['best_sell'] : '0'
 				));
+
 
 		if(Input::hasFile('image')){
 			
 			$dt = new DateTime;
 			$image = $dt->getTimestamp().'.'.Input::file('image')->getClientOriginalExtension();
-			Image::make(Input::file('image')->getRealPath())->save('farms/images/products/'.$image);
+			$orig = Image::make(Input::file('image')->getRealPath());
+			$height = $orig->height();
+			if($height > 800){
+				$orig->resize(null, 800, function ($constraint) {
+				    $constraint->aspectRatio();
+				});
+			}
+			$orig->save('farms/images/products/'.$image);
 
-			$product->update(
-				array(
-						'image' => asset('farms/images/products/'.$image.'')
-					)
-				);
+			$product->update([
+					'images' => asset('farms/images/products/'.$image),
+				]);
+			
+		}
+
+		if(Input::hasFile('image_add')){
+			
+			foreach ($data['image_add'] as $key => $img) {
+				
+				$dt = new DateTime;
+				$image = $dt->getTimestamp().'-'. sha1($img->getClientOriginalName()).'.'.$img->getClientOriginalExtension();
+				$orig = Image::make($img->getRealPath());
+				$height = $orig->height();
+				if($height > 800){
+					$orig->resize(null, 800, function ($constraint) {
+					    $constraint->aspectRatio();
+					});
+				}
+				$orig->save('farms/images/products/'.$image);
+				ProductImage::create([
+					'images' => asset('farms/images/products/'.$image),
+					'progress_id' => $progress->id
+					]);
+				
+			}
 			
 		}
 
@@ -140,7 +169,8 @@ class ProductsController extends AdminController {
 					'highlight' => $data['highlight'],
 					'description' => $data['description'],
 					'category_id' => $data['category_id'],
-					'quantity' => $data['quantity']
+					'stock' => $data['stock'],
+					'best_sell' => $data['best_sell'] ?  $data['best_sell'] : '0'
 				));
 
 		if(Input::hasFile('image')){
@@ -154,6 +184,31 @@ class ProductsController extends AdminController {
 						'image' => asset('farms/images/products/'.$image.'')
 					)
 				);
+			
+		}
+
+		if(Input::hasFile('image_add')){
+
+			ProductImage::where('product_id', $product->id)->delete();
+			
+			foreach ($data['image_add'] as $key => $img) {
+				
+				$dt = new DateTime;
+				$image = $dt->getTimestamp().'-'. sha1($img->getClientOriginalName()).'.'.$img->getClientOriginalExtension();
+				$orig = Image::make($img->getRealPath());
+				$height = $orig->height();
+				if($height > 800){
+					$orig->resize(null, 800, function ($constraint) {
+					    $constraint->aspectRatio();
+					});
+				}
+				$orig->save('farms/images/products/'.$image);
+				ProductImage::create([
+					'images' => asset('farms/images/products/'.$image),
+					'product_id' => $product->id
+					]);
+				
+			}
 			
 		}
 

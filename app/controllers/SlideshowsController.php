@@ -9,6 +9,12 @@ class SlideshowsController extends \AdminController {
 	 */
 	public function index()
 	{
+		$this->theme->asset()->container('inline-script')->writeScript('EditableTable', '
+	    	jQuery(document).ready(function() {
+	       		EditableTable.init();
+	    	});
+		');
+		
 		$slideshows = Slideshow::all();
 
 		$view = array(
@@ -42,9 +48,28 @@ class SlideshowsController extends \AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		Slideshow::create($data);
+		if(Input::hasFile('image')){
+			
+			$dt = new DateTime;
+			$image = $dt->getTimestamp().'.'.Input::file('image')->getClientOriginalExtension();
+			$orig = Image::make(Input::file('image')->getRealPath());
+			$height = $orig->height();
+			if($height > 900){
+				$orig->resize(null, 900, function ($constraint) {
+				    $constraint->aspectRatio();
+				});
+			}
+			$orig->save('farms/images/'.$image);
 
-		return Redirect::action('SlideshowsController@index')->with('message','');
+			Slideshow::create([
+					'image' => asset('farms/images/'.$image),
+				]);
+			
+		}
+
+		
+
+		return Redirect::action('SlideshowsController@index')->with('message','<strong>Success!</strong> Your content has been modified.');
 	}
 
 	/**
@@ -94,9 +119,26 @@ class SlideshowsController extends \AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$slideshow->update($data);
+		if(Input::hasFile('image')){
+			
+			$dt = new DateTime;
+			$image = $dt->getTimestamp().'.'.Input::file('image')->getClientOriginalExtension();
+			$orig = Image::make(Input::file('image')->getRealPath());
+			$height = $orig->height();
+			if($height > 900){
+				$orig->resize(null, 900, function ($constraint) {
+				    $constraint->aspectRatio();
+				});
+			}
+			$orig->save('farms/images/'.$image);
 
-		return Redirect::action('SlideshowsController@index')->with('message','');
+			$slideshow->update([
+					'image' => asset('farms/images/'.$image),
+				]);
+			
+		}
+
+		return Redirect::action('SlideshowsController@index')->with('message','<strong>Success!</strong> Your content has been modified.');
 	}
 
 	/**
@@ -109,7 +151,7 @@ class SlideshowsController extends \AdminController {
 	{
 		Slideshow::destroy($id);
 
-		return Redirect::action('SlideshowsController@index')->with('message','');
+		return Redirect::action('SlideshowsController@index')->with('message','<strong>Success!</strong> Your content has been modified.');
 	}
 
 }

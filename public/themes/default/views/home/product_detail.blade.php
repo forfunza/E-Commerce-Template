@@ -6,9 +6,16 @@
     <div class="product-detail-block">
         <div class="prod-left">
             <div class="fotorama" data-nav="thumbs" data-thumbheight="68" data-allowfullscreen="true">
-                <a href="{{ asset('themes/default/assets/images/product/NEO_WH_PR_PI_1-3.jpg') }}"><img src="{{ asset('themes/default/assets/images/product/NEO_WH_PR_PI_1-3.jpg') }}" /></a>
-                <a href="{{ asset('themes/default/assets/images/product/NEO_BM_OV_PI_1.jpg') }}"><img src="{{ asset('themes/default/assets/images/product/NEO_BM_OV_PI_1.jpg') }}" /></a>
-                <a href="{{ asset('themes/default/assets/images/product/NEO_MA_PI_1.jpg') }}"><img src="{{ asset('themes/default/assets/images/product/NEO_MA_PI_1.jpg') }}" /></a>
+                
+                @if(count($images))
+                    @foreach ($images as $image) {
+                        <a href="{{ $image->images }}"><img src="{{ $image->images }}" /></a>
+                    @endforeach
+                @elseif($product->image)
+                    <a href="{{ $product->image }}"><img src="{{ $product->image }}" /></a>
+                @else 
+                    <a href="http://placehold.it/432x360&text=Image"><img src="http://placehold.it/432x360&text=Image" /></a>
+                @endif
             </div>
         </div>
         <div class="prod-right">
@@ -17,13 +24,21 @@
             <div class="colLeft">หมวดหมู่สินค้า</div>
             <div class="colRight">{{ $product->category->name }}</div>
             <div class="colLeft">สถานะสินค้า</div>
-            <div class="colRight">พร้อมส่ง</div>
+            <div class="colRight">
+                @if($product->stock == 1)
+                    พร้อมส่ง
+                @elseif($product->stock ==2)
+                    พรีออเดอร์
+                @else
+                    หมดชั่วคราว
+                @endif
+            </div>
             <div class="colLeft">จำนวน</div>
             <div class="colRight"><input id="spinner" name="value" value="1"></div>
             <div class="clear"></div>
             <div class="dot-line"></div>
             <div class="colLeft rate-pay"><span class="rate-txt">ราคาสินค้า</span> <br/><span class="num-rate">2,400</span> <span class="red-txt">บาท</span></div>
-            <div class="colRight rate-pay"><a href="#" class="addcart-b-btn">หยิบใส่ตระกร้า</a></div>
+            <div class="colRight rate-pay"><a href="#" id="addcart" class="addcart-b-btn">หยิบใส่ตระกร้า</a><input type="hidden" id="product_id" name="product_id" value="{{ $id }}" /></div>
             <div class="clear"></div>
             <div class="dot-line"></div>
             <div class="share-product-area">

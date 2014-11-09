@@ -8,7 +8,7 @@ class Product extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['image','code','name','highlight','description','quantity','category_id'];
+	protected $fillable = ['image','code','price','name','highlight','description','best_sell','stock','category_id'];
 
 	public function category()
     {

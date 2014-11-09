@@ -17,8 +17,12 @@ class CreateBathersTable extends Migration {
 			$table->increments('id');
 			$table->string('image',255)->nullable();
 			$table->string('name',255);
+			$table->string('title',255);
 			$table->string('tel',50);
 			$table->text('description')->nullable();
+			$table->timestamp('expire');
+			$table->string('dealer_price',50);
+			$table->string('amed_price',50);
 			$table->timestamps();
 		});
 	}

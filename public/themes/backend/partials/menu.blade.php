@@ -67,16 +67,30 @@
                     <span>News & Event</span>
                 </a>
             </li>
+            <li>
+                <a href="{{ action('SlideshowsController@index') }}">
+                    <i class="fa fa-bullhorn"></i>
+                    <span>SlideShows</span>
+                </a>
+            </li>
             <li class="sub-menu">
                 <a href="javascript:;">
                     <i class="fa fa-road"></i>
-                    <span>Contacts</span>
+                    <span>Information</span>
                 </a>
                 <ul class="sub">
-                    <li><a href="{{ action('ContactsController@edit',1) }}">Information</a></li>
+                    <li><a href="{{ action('WebsitesController@edit',1) }}">Website</a></li>
+                    <li><a href="{{ action('ContactsController@edit',1) }}">Contact</a></li>
                     <li><a href="{{ action('BranchesController@index') }}">Branch</a></li>
-                    <li><a href="#">Career</a></li>
+                    <li><a href="{{ action('CareersController@index') }}">Career</a></li>
                 </ul>
+            </li>
+
+            <li>
+                <a href="#">
+                    <i class="fa fa-bullhorn"></i>
+                    <span>Order</span>
+                </a>
             </li>
 
             

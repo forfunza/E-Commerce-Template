@@ -53,16 +53,33 @@ jQuery(function(){
 ');
 
 		$category_services = Category::where('entity_id',1)->get();
-		$promotions = Promotion::all()->take(4);
-		//$news = News::orderBy('created_at','desc')->first();
+		$promotions = Promotion::orderBy('updated_at','desc')->take(4)->get();
+		$befores = Before::orderBy('updated_at','desc')->take(4)->get();
+		$news = News::orderBy('updated_at','desc')->take(4)->get();
+		$reviews = Review::orderBy('updated_at','desc')->take(4)->get();
+		$consults = Consult::orderBy('updated_at','desc')->take(4)->get();
+
+		$bests = Product::orderBy('updated_at','desc')->where('best_sell',1)->take(5)->get();
+
 		$review = Review::orderBy('created_at','desc')->first();
 		//dd($review);
+
+		$nnews = News::orderBy('updated_at','desc')->first();
+
+		$slideshows = Slideshow::all();
 
 
 		$view = array(
 			'category_services' => $category_services,
 			'promotions' => $promotions,
-			'review' => $review
+			'review' => $review,
+			'befores' => $befores,
+			'reviews' => $reviews,
+			'news' => $news,
+			'consults' => $consults,
+			'bests' => $bests,
+			'nnews' => $nnews,
+			'slideshows' => $slideshows
 			);
 
 		return $this->theme->scope('home.index', $view)->render();
@@ -70,8 +87,132 @@ jQuery(function(){
 
 	public function login()
 	{
+		if (Session::has('message'))
+		{
+        	$this->theme->asset()->container('inline-footer')->writeScript('alert', '
+			    $(function() {
+			         alert("'.Session::get('message').'"); 
+			    })
+			');
+        }
 		$view = array();
 		return $this->theme->scope('home.login', $view)->render();
+	}
+
+	public function logout()
+	{
+		Sentry::logout();
+		return Redirect::action('HomeController@index');
+	}
+
+	public function register()
+	{
+		$view = array();
+		return $this->theme->scope('home.register', $view)->render();
+	}
+
+	public function group($group)
+	{
+		$group = Sentry::createGroup(array(
+        'name'        => $group,
+        'permissions' => array(
+            $group => 1
+        ),
+    ));
+	}
+
+	public function handle_register()
+	{
+
+		try
+		{
+		    // Create the user
+		    $user = Sentry::createUser(array(
+		        'email'     => Input::get('email'),
+		        'password'  => Input::get('password'),
+		        'activated' => true,
+		        'first_name' => Input::get('firstname'),
+		        'last_name' => Input::get('lastname')
+		    ));
+
+		    // Find the group using the group id
+		    $userGroup = Sentry::findGroupById(2);
+
+		    // Assign the group to the user
+		    $user->addGroup($userGroup);
+		}
+		catch (Cartalyst\Sentry\Users\LoginRequiredException $e)
+		{
+		    echo 'Login field is required.';
+		}
+		catch (Cartalyst\Sentry\Users\PasswordRequiredException $e)
+		{
+		    echo 'Password field is required.';
+		}
+		catch (Cartalyst\Sentry\Users\UserExistsException $e)
+		{
+		    echo 'User with this login already exists.';
+		}
+		catch (Cartalyst\Sentry\Groups\GroupNotFoundException $e)
+		{
+		    echo 'Group was not found.';
+		}
+
+		// Mail::send('emails.user.welcome', function($message)
+		// {
+		//     $message->from('limplemoness@gmail.com', 'Laravel');
+
+		//     $message->to('limplemoness@gmail.com');
+		// });
+
+		return Redirect::action('HomeController@login');
+	}
+
+	public function authenticate()
+	{
+		try
+		{
+		    // Login credentials
+		    $credentials = array(
+		        'email'    => Input::get('email'),
+		        'password' => Input::get('password'),
+		    );
+
+		    // Authenticate the user
+		    $user = Sentry::authenticate($credentials, false);
+		}
+		catch (Cartalyst\Sentry\Users\LoginRequiredException $e)
+		{
+		    return Redirect::action('HomeController@login')->with('message','Login field is required');
+		}
+		catch (Cartalyst\Sentry\Users\PasswordRequiredException $e)
+		{
+		    return Redirect::action('HomeController@login')->with('message','Password field is required.');
+		}
+		catch (Cartalyst\Sentry\Users\WrongPasswordException $e)
+		{
+		    return Redirect::action('HomeController@login')->with('message','Wrong password, try again.');
+		}
+		catch (Cartalyst\Sentry\Users\UserNotFoundException $e)
+		{
+		    return Redirect::action('HomeController@login')->with('message','User was not found.');
+		}
+		catch (Cartalyst\Sentry\Users\UserNotActivatedException $e)
+		{
+		    return Redirect::action('HomeController@login')->with('message','User is not activated.');
+		}
+
+		// The following is only required if the throttling is enabled
+		catch (Cartalyst\Sentry\Throttling\UserSuspendedException $e)
+		{
+		    return Redirect::action('HomeController@login')->with('message','User is suspended.');
+		}
+		catch (Cartalyst\Sentry\Throttling\UserBannedException $e)
+		{
+		    return Redirect::action('HomeController@login')->with('message','User is banned.');
+		}
+
+		return Redirect::action('HomeController@index');
 	}
 
 	public function aboutus()
@@ -352,11 +493,17 @@ $container.imagesLoaded( function() {
 	    });
 	    </script>');
 		$product = Product::findOrFail($id);
+		$images = ProductImage::where('product_id',$id)->get();
 		$bests = Product::where('best_sell',1)->get();
 		$view = array(
 			'product' => $product,
-			'bests' => $bests
+			'bests' => $bests,
+			'id' => $id,
+			'images' => $images
 			);
+
+
+		
 		return $this->theme->scope('home.product_detail', $view)->render();
 	}
 
@@ -420,8 +567,33 @@ $container.imagesLoaded( function() {
 
 	public function bather()
 	{
-		$view = array();
+		$bathers = Bather::all();
+		$services = Service::all();
+		$bests = Product::where('best_sell',1)->take(3)->get();
+		$view = array(
+			'bathers' => $bathers,
+			'services' => $services,
+			'bests' => $bests
+			);
 		return $this->theme->scope('home.bather', $view)->render();
+	}
+
+	public function bather_detail($id)
+	{
+		$this->theme->asset()->usePath()->add('fotorama', 'styles/fotorama.css',array('main'), array('media' => 'all'));
+
+		$this->theme->asset()->container('script-header')->usePath()->add('fotorama', 'js/fotorama.js', array('jquery'));
+
+		$images = BatherImage::where('bather_id',$id)->get();
+
+		$bather = Bather::findOrFail($id);
+
+		$view = array(
+			'images' => $images,
+			'bather' => $bather
+			);
+
+		return $this->theme->scope('home.bather_detail',$view)->render();
 	}
 
 	public function news()
@@ -464,15 +636,125 @@ $container.imagesLoaded( function() {
 			
 		});
     </script>');
-		$view = array();
+		$branches = Branch::all();
+		$view = array(
+			'branches' => $branches
+			);
 		return $this->theme->scope('home.contact', $view)->render();
 	}
 
-	public function career()
+	public function branch($id)
 	{
 		
-		$view = array();
+		$branch = Branch::findOrFail($id);
+		$view = array(
+			'branch' => $branch
+			);
+		return $this->theme->scope('home.branch', $view)->render();
+	}
+
+
+
+	public function career()
+	{
+		$careers = Career::all();
+		$view = array(
+			'careers' => $careers
+			);
 		return $this->theme->scope('home.career', $view)->render();
+	}
+
+	public function cart()
+	{
+		$view = array(
+			'products' => Cart::content()
+			);
+
+		//dd(Cart::content());
+		return $this->theme->scope('home.checkout', $view)->render();
+	}
+
+	public function cart_remove($id)
+	{
+		Cart::remove($id);
+		
+
+		return Redirect::action('HomeController@cart');
+	}
+
+	public function cart_add()
+	{
+		$view = array();
+
+		if (Request::ajax())
+		{
+			$product = Product::find(Input::get('id'));
+
+			$search = Cart::search(array('id' => Input::get('id')));
+
+			//dd($search);
+			if($search)
+			{
+				$old = Cart::get($search[0]);
+			//dd($old);
+				$qty = $old['qty'] + Input::get('qty');
+				
+				$update = Cart::update($old['rowid'], array('qty' => $qty));
+
+				//dd($update);
+			}
+			else
+			{
+				Cart::add(
+					array(
+							'id' => $product->id, 
+							'name' => $product->name, 
+							'qty' => Input::get('qty'), 
+							'price' => $product->price, 
+							'options' => array()
+						)
+				);
+			}
+
+		
+
+			return Response::json(array('count' =>  Cart::count(false)));
+		}
+		//return $this->theme->scope('home.checkout', $view)->render();
+	}
+
+	public function line()
+	{
+		return $this->theme->scope('home.line')->render();
+	}
+
+	public function checkout_1()
+	{
+		$user = array();
+		if(Sentry::check())
+		{
+			$access = Sentry::getUser()->hasAccess('user');
+			$user =  Sentry::getUser();
+		}
+
+		
+		
+		
+			
+
+		$view = array(
+			'user' => $user
+			);
+		return $this->theme->scope('home.checkout_1', $view)->render();
+	}
+
+	public function checkout_2()
+	{
+
+		$view = array(
+			'input' => Input::all()
+			);
+		return $this->theme->scope('home.checkout_2', $view)->render();
 	}
 
 }

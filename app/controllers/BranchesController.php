@@ -9,6 +9,12 @@ class BranchesController extends \AdminController {
 	 */
 	public function index()
 	{
+		$this->theme->asset()->container('inline-script')->writeScript('EditableTable', '
+	    	jQuery(document).ready(function() {
+	       		EditableTable.init();
+	    	});
+		');
+
 		$branches = Branch::all();
 
 		$view = array(
@@ -42,9 +48,27 @@ class BranchesController extends \AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		Branch::create($data);
 
-		return Redirect::action('BranchesController@index')->with('message','');
+		$branch = Branch::create([
+				'name' => $data['name'],
+				'description' => $data['description']
+			]);
+
+		if(Input::hasFile('image')){
+			
+			$dt = new DateTime;
+			$image = $dt->getTimestamp().'.'.Input::file('image')->getClientOriginalExtension();
+			Image::make(Input::file('image')->getRealPath())->save('farms/images/'.$image);
+
+			$branch->update(
+				array(
+						'image' => asset('farms/images/'.$image.'')
+					)
+				);
+			
+		}
+
+		return Redirect::action('BranchesController@index')->with('message','<strong>Success!</strong> Your content has been modified.');
 	}
 
 	/**
@@ -94,9 +118,26 @@ class BranchesController extends \AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$branch->update($data);
+		$branch->update([
+				'name' => $data['name'],
+				'description' => $data['description']
+			]);
 
-		return Redirect::action('BranchesController@index')->with('message','');
+		if(Input::hasFile('image')){
+			
+			$dt = new DateTime;
+			$image = $dt->getTimestamp().'.'.Input::file('image')->getClientOriginalExtension();
+			Image::make(Input::file('image')->getRealPath())->save('farms/images/'.$image);
+
+			$branch->update(
+				array(
+						'image' => asset('farms/images/'.$image.'')
+					)
+				);
+			
+		}
+
+		return Redirect::action('BranchesController@index')->with('message','<strong>Success!</strong> Your content has been modified.');
 	}
 
 	/**
@@ -109,7 +150,7 @@ class BranchesController extends \AdminController {
 	{
 		Branch::destroy($id);
 
-		return Redirect::action('BranchesController@index')->with('message','');
+		return Redirect::action('BranchesController@index')->with('message','<strong>Success!</strong> Your content has been modified.');
 	}
 
 }

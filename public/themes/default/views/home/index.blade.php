@@ -58,11 +58,11 @@
                 @foreach ($promotions as $promotion) 
                 <div class="pro-item">
                     <div class="pro-item-left">
-                        <a href="#"><div class="pro-item-thumnail"><img src="{{ $promotion->image }}" /></div></a>
-                        <a href="#">สั่งซื้อโปรฯ นี้</a>
+                        <a href="{{ action('HomeController@promotion') }}"><div class="pro-item-thumnail"><img src="{{ $promotion->image }}" /></div></a>
+                        <a href="{{ action('HomeController@promotion') }}">สั่งซื้อโปรฯ นี้</a>
                     </div>
                     <div class="pro-item-right">
-                        <a href="#">
+                        <a href="{{ action('HomeController@promotion') }}">
                         <h3>{{ $promotion->name }}</h3>
                         <div class="pro-item-caption">{{ str_limit($promotion->description, $limit = 100, $end = '') }}</div>
                         <div class="exp-date"> expire : {{ date('d M Y',strtotime($promotion->expire)) }}</div>
@@ -79,7 +79,7 @@
                 @if($befores)
                 @foreach ($befores as $before) 
                 <div class="pro-item">
-                	<a href="#"> 
+                	<a href="{{ action('HomeController@before') }}"> 
                     <div class="pro-item-left">
                         <div class="pro-item-thumnail"><img src="{{ $before->image }}" /></div>
                     </div>
@@ -102,7 +102,7 @@
                 @if($news)
                 @foreach ($news as $tmp) 
                 <div class="pro-item">
-                <a href="#"> 
+                <a href="{{ action('HomeController@news') }}"> 
                     <div class="pro-item-left">
                         <div class="pro-item-thumnail"><img src="{{ $tmp->image }}" /></div>
                     </div>
@@ -122,7 +122,7 @@
                 @if($reviews)
                 @foreach ($reviews as $review) 
                 <div class="pro-item">
-                <a href="#"> 
+                <a href="{{ action('HomeController@review_detail',$review->id) }}"> 
                     <div class="pro-item-left">
                         <div class="pro-item-thumnail"><img src="{{ $review->image }}" /></div>
                     </div>
@@ -142,7 +142,7 @@
                 @if($consults)
                 @foreach ($consults as $consult) 
                 <div class="pro-item">
-                <a href="#"> 
+                <a href="{{ action('HomeController@consult_detail',$consult->id) }}"> 
                     <div class="pro-item-left">
                         <div class="pro-item-thumnail"><img src="{{ $consult->image }}" /></div>
                     </div>
@@ -188,7 +188,7 @@
 </div>
 @if($nnews)
 <div class="hp-right">
-    <a href="#">
+    <a href="{{ action('HomeController@news') }}">
         <div class="thumbnail"><img src="{{ $nnews->image }}" /></div>
         <div class="hn">
             <div class="toppic">{{ $nnews->name }}</div>

@@ -26,13 +26,20 @@
 							<span class="btn btn-white btn-file">
 							<span class="fileupload-new"><i class="fa fa-paper-clip"></i> Choose</span>
 							<span class="fileupload-exists"><i class="fa fa-undo"></i> Change </span>
-							<input type="file" name="image" class="default" required>
+							<input type="file" name="image" class="default">
 							</span>
 							<a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload"><i class="fa fa-trash"></i> Delete</a>
 						</div>
 					</div>
 				</div>
 				
+			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Link</label>
+				<div class="col-sm-6">
+					<input name="link" value="{{ $slideshow->link }}" type="text" class="form-control">
+				</div>
 			</div>
 		
 		</div>

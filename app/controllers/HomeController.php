@@ -823,6 +823,9 @@ $container.imagesLoaded( function() {
 				]);
 		}
 
+		Session::forget('input');
+		Cart::destroy();
+
 		$view = array(
 			'contact' => $contact,
 			);

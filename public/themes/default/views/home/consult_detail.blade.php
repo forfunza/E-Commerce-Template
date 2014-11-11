@@ -10,7 +10,7 @@
     </div>
     <div class="prod-right">
     	<div class="fb-chatbox-area">
-        	-ส่วนของกล่องแสดงความคิดเห็นโดย Facebook comment box จะแสดงผลเมื่อใส่โปรแกรม-
+        	
         </div>
     </div>
 </div>

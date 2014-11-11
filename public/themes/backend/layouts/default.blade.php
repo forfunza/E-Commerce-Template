@@ -54,7 +54,9 @@
 </section>
 
 <!-- Placed js at the end of the document so the pages load faster -->
+
 {{ Theme::asset()->container('core-js')->scripts() }}
+<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.js"></script>
 {{ Theme::asset()->container('custom-js')->scripts() }}
 {{ Theme::asset()->container('inline-script')->scripts() }}
 

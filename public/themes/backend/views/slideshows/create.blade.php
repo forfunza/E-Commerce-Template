@@ -29,6 +29,13 @@
 				</div>
 				
 			</div>
+
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Link</label>
+				<div class="col-sm-6">
+					<input name="link" value="" type="text" class="form-control">
+				</div>
+			</div>
 		
 		</div>
 	</section>

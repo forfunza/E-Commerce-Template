@@ -8,6 +8,6 @@ class Slideshow extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['image'];
+	protected $fillable = ['image','link'];
 
 }

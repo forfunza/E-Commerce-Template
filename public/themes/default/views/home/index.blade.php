@@ -1,8 +1,7 @@
-
 <div class="camera_wrap" id="camera_wrap">
 @if($slideshows)
     @foreach($slideshows as $slide)
-    <div data-src="{{ $slide->image }}"></div>
+    <div data-link="{{ $slide->link }}" data-target="_blank" data-src="{{ $slide->image }}"></div>
     @endforeach
 @endif
 </div>

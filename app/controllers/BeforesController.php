@@ -48,7 +48,11 @@ class BeforesController extends AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$before = Before::create($data);
+		$before = Before::create([
+				'name' => $data['name'],
+				'author' => $data['author'],
+				'description' => $data['description']
+			]);
 
 		if(Input::hasFile('image')){
 			
@@ -115,7 +119,11 @@ class BeforesController extends AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$before->update($data);
+		$before->update([
+			'name' => $data['name'],
+			'author' => $data['author'],
+			'description' => $data['description']
+			]);
 
 		if(Input::hasFile('image')){
 			

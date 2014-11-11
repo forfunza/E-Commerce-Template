@@ -56,8 +56,11 @@ class CategoriesController extends AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-
-		$category = Category::create($data);
+	
+		$category = Category::create([
+				'entity_id' => $data['entity_id'],
+				'name' => $data['name']
+			]);
 
 		if(Input::hasFile('image')){
 			
@@ -126,6 +129,12 @@ class CategoriesController extends AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
+
+		$category->update([
+				'name' => $data['name']
+			]);
+
+		
 		if(Input::hasFile('image')){
 			
 			$dt = new DateTime;
@@ -138,9 +147,7 @@ class CategoriesController extends AdminController {
 			
 		}
 
-		$category->update([
-			'name' => $data['name']
-			]);
+		
 
 		$entity = Entity::find($category->entity_id);
 

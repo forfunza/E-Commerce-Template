@@ -31,7 +31,15 @@ class ContactsController extends \AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$contact->update($data);
+		$contact->update([
+			'name_1' => $data['name_1'],
+			'name_2' => $data['name_2'],
+			'address' => $data['address'],
+			'tel' => $data['tel'],
+			'fax' => $data['fax'],
+			'email_1' => $data['email_1'],
+			'email_2' => $data['email_2']
+			]);
 
 		if(Input::hasFile('image')){
 			

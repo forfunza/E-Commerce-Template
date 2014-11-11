@@ -27,15 +27,7 @@
     </div>
     @endif
     <div class="cocol-right">
-        @if($services)
-        <div class="all-service">
-            <ul>
-                @foreach ($services as $tmp)
-                <li class="{{ Request::segment(2) == $tmp->id ? 'active' : '' }}"><a href="detail-service.html" >{{ str_limit($tmp->name, $limit = 15, $end = '') }}</a></li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
+       {{ Theme::widget('WidgetServices', array('services' => $services))->render(); }}
     </div>
     <div class="clear"></div>
 </section>

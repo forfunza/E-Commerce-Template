@@ -1,6 +1,6 @@
 <section>
 	<div class="ccol-left">
-    	<div class="contact-top-img"><img src="{{ asset('themes/default/assets/images/contact-img.jpg') }}" /></div>
+    	<div class="contact-top-img"><img src="{{ $contact->image }}" /></div>
 
         @if($branches)
         @foreach ($branches as $branch)

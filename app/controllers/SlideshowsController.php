@@ -48,6 +48,10 @@ class SlideshowsController extends \AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
+		$slide = Slideshow::create([
+					'link' => $data['link']
+				]);
+
 		if(Input::hasFile('image')){
 			
 			$dt = new DateTime;
@@ -61,7 +65,7 @@ class SlideshowsController extends \AdminController {
 			}
 			$orig->save('farms/images/'.$image);
 
-			Slideshow::create([
+			$slide->update([
 					'image' => asset('farms/images/'.$image),
 				]);
 			
@@ -118,6 +122,10 @@ class SlideshowsController extends \AdminController {
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
+
+		$slideshow->update([
+				'link' => $data['link']
+			]);
 
 		if(Input::hasFile('image')){
 			

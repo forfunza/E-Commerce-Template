@@ -115,7 +115,25 @@ class ConsultsController extends AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$consult->update($data);
+		$consult->update([
+			'name' => $data['name'],
+			'highlight' => $data['highlight'],
+			'description' => $data['description']
+			]);
+
+		if(Input::hasFile('image')){
+			
+			$dt = new DateTime;
+			$image = $dt->getTimestamp().'.'.Input::file('image')->getClientOriginalExtension();
+			Image::make(Input::file('image')->getRealPath())->save('farms/images/'.$image);
+
+			$consult->update(
+				array(
+						'image' => asset('farms/images/'.$image.'')
+					)
+				);
+			
+		}
 
 		return Redirect::action('ConsultsController@index')->with('message', '<strong>Success!</strong> Your content has been modified.');
 

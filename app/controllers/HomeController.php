@@ -62,6 +62,9 @@ jQuery(function(){
 		$bests = Product::orderBy('updated_at','desc')->where('best_sell',1)->take(5)->get();
 
 		$review = Review::where('home',1)->first();
+		if(empty($review))
+			$review = Review::orderBy('updated_at','desc')->take(1)->get();
+
 		//dd($review);
 
 		$nnews = News::orderBy('updated_at','desc')->first();
@@ -609,7 +612,7 @@ $container.imagesLoaded( function() {
 	{
 
 		$dt = new DateTime;
-		
+
 		PromotionOrder::create([
 				'invoice_id' => Date('Ymd').$dt->getTimestamp(),
 				'order_status' => '1',

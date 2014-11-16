@@ -8,7 +8,7 @@
          <div class="panel timeline-content">
             <div class="panel-body">
                <div class="trement-name">{{ $tmp->name }}</div>
-               <div class="news-date">20 กุมภาพันธ์ 2557</div>
+               <div class="news-date">{{ $tmp->updated_at->toFormattedDateString() ;}}</div>
                <div class="more-less">
                   <div class="more-blocky">
                     <p>{{ $tmp->description }}</p>

@@ -108,7 +108,6 @@ class ReviewsController extends AdminController {
 	public function update($id)
 	{
 		$review = Review::findOrFail($id);
-
 		$validator = Validator::make($data = Input::all(), Review::$rules);
 
 		if ($validator->fails())
@@ -116,7 +115,37 @@ class ReviewsController extends AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$review->update($data);
+		
+		$review->update([
+				'name' => $data['name'],
+				'highlight' => $data['highlight'],
+				'description' => $data['description'],
+				'youtube' => $data['youtube'],
+				'url' => $data['url'],
+				'tel' => $data['tel'],
+				'facebook' => $data['facebook'],
+				'line' => $data['line'],
+				'website' => $data['website'],
+				'instagram' => $data['instagram'],
+
+			]);
+
+		if(Input::has('home')){
+			$old = Review::where('home',1)->first();
+
+			if($old->id != $review->id){
+				$old = Review::where('home',1)->update([
+						'home' => 0
+					]);
+			}
+
+			
+			$review->update([
+				'home' => 1
+			]);
+			
+		}
+
 
 		if(Input::hasFile('image')){
 			

@@ -40,6 +40,8 @@ function()
     Route::resource('careers', 'CareersController');
     Route::resource('orders', 'OrdersController');
     Route::resource('customer_reviews', 'CustomerReviewsController');
+    Route::resource('service_discounts', 'ServiceDiscountsController');
+    Route::resource('promotion_orders', 'PromotionOrdersController');
 });
 
 
@@ -75,10 +77,13 @@ Route::get('/consult-doctor', 'HomeController@consult');
 Route::get('/consult-doctor/{id}', 'HomeController@consult_detail');
 Route::get('/service', 'HomeController@service');
 Route::get('/service-detail/{id}', 'HomeController@service_detail');
+Route::post('/service-discount', 'HomeController@service_discount');
 Route::get('/service-categories/{id}', 'HomeController@service_categories');
 Route::get('/product', 'HomeController@product');
 Route::get('/product/{id}', 'HomeController@product_detail');
 Route::get('/promotion', 'HomeController@promotion');
+Route::get('/promotion/order/{id}', 'HomeController@promotion_order');
+Route::post('/promotion/checkout', 'HomeController@promotion_checkout');
 Route::get('/before-after', 'HomeController@before');
 Route::get('/co-bather', 'HomeController@bather');
 Route::get('/co-bather/{id}', 'HomeController@bather_detail');

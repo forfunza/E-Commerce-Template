@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/amedclinic/app/views/promotion_orders/create.blade.php

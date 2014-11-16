@@ -85,13 +85,19 @@
                     <li><a href="{{ action('CareersController@index') }}">Career</a></li>
                 </ul>
             </li>
-
-            <li>
-                <a href="{{ action('OrdersController@index') }}">
-                    <i class="fa fa-bullhorn"></i>
-                    <span>Order</span>
+            <li class="sub-menu">
+                <a href="javascript:;">
+                    <i class="fa fa-road"></i>
+                    <span>Sale</span>
                 </a>
+                <ul class="sub">
+                    <li><a href="{{ action('OrdersController@index') }}">Product Order</a></li>
+                    <li><a href="{{ action('PromotionOrdersController@index') }}">Promotion Order</a></li>
+                    <li><a href="{{ action('ServiceDiscountsController@index') }}">Service Discount</a></li>
+                </ul>
             </li>
+
+            
 
             
             

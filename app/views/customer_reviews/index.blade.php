@@ -1,1 +1,0 @@
-/Applications/MAMP/htdocs/amedclinic/app/views/customer_reviews/index.blade.php

@@ -90,6 +90,12 @@
 					<input name="website" value="" type="text" class="form-control" >
 				</div>
 			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Home Page</label>
+				<div class="col-sm-1">
+					<input name="home" type="checkbox" value="1" class="form-control"/>
+				</div>
+			</div>
 		
 		</div>
 	</section>

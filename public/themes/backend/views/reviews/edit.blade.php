@@ -53,7 +53,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Video (Youtube)</label>
 				<div class="col-sm-6">
-					<input name="url" value="{{ $review->youtube }}" type="text" class="form-control" >
+					<input name="youtube" value="{{ $review->youtube }}" type="text" class="form-control" >
 				</div>
 			</div>
 			<div class="form-group">
@@ -90,6 +90,12 @@
 				<label class="col-sm-2 control-label">Website</label>
 				<div class="col-sm-6">
 					<input name="website" value="{{ $review->website }}" type="text" class="form-control" >
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Home Page</label>
+				<div class="col-sm-1">
+					<input name="home" {{ $review->home ? 'checked' : '' }} value="1" type="checkbox" class="form-control"/>
 				</div>
 			</div>
 		

@@ -1,1 +1,0 @@
-/Applications/MAMP/htdocs/amedclinic/app/views/customer_reviews/create.blade.php

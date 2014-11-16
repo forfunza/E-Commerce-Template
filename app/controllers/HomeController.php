@@ -61,7 +61,7 @@ jQuery(function(){
 
 		$bests = Product::orderBy('updated_at','desc')->where('best_sell',1)->take(5)->get();
 
-		$review = Review::orderBy('created_at','desc')->first();
+		$review = Review::where('home',1)->first();
 		//dd($review);
 
 		$nnews = News::orderBy('updated_at','desc')->first();
@@ -414,6 +414,21 @@ $container.imagesLoaded( function() {
 	
     });
     </script>');
+
+		if (Session::has('service_discount'))
+		{
+		    $this->theme->asset()->container('inline-footer')->writeContent('sucess','<script>
+		    $(document).ready(function() {
+
+		      alert("บันทึกข้อมูลเรียบร้อยแล้ว")
+			
+		    });
+		    </script>');
+		}
+
+		
+
+
 		$service = Service::findOrFail($id);
 		$services = Service::all();
 		$hot_promotion = Promotion::orderBy('seller','desc')->take(4)->get();
@@ -423,6 +438,27 @@ $container.imagesLoaded( function() {
 			'hot_promotion' => $hot_promotion
 			);
 		return $this->theme->scope('home.service_detail', $view)->render();
+	}
+
+	public function service_discount()
+	{
+
+
+
+		ServiceDiscount::create([
+				'firstname' => Input::get('firstname'),
+				'lastname' => Input::get('lastname'),
+				'tel' => Input::get('tel'),
+				'email' => Input::get('email'),
+				'address' => Input::get('address'),
+				'problem' => Input::get('problem'),
+				'branch' => Input::get('branch'),
+				'contact' => Input::get('contact'),
+			]);
+
+		Session::flash('service_discount', '1');
+		
+		return Redirect::action('HomeController@service_detail',Input::get('service_id'));
 	}
 
 	public function service_categories($id)
@@ -533,6 +569,17 @@ $container.imagesLoaded( function() {
 	      });
 	    });
 	    </script>');
+
+	    if (Session::has('promotion_checkout'))
+		{
+		    $this->theme->asset()->container('inline-footer')->writeContent('sucess','<script>
+		    $(document).ready(function() {
+
+		      alert("ได้รับออเดอร์เรียบร้อยแล้ว");
+			
+		    });
+		    </script>');
+		}
 		$promotions = Promotion::all();
 		$services = Service::all();
 		$bests = Product::where('best_sell',1)->get();
@@ -542,6 +589,42 @@ $container.imagesLoaded( function() {
 			'bests' => $bests
 			);
 		return $this->theme->scope('home.promotion', $view)->render();
+	}
+
+
+	public function promotion_order($id)
+	{
+		
+	
+		$services = Service::all();
+ 		$view = array(
+			'services' => $services,
+			'promotion_id' => $id
+			
+			);
+		return $this->theme->scope('home.promotion_order', $view)->render();
+	}
+
+	public function promotion_checkout()
+	{
+
+		$dt = new DateTime;
+		
+		PromotionOrder::create([
+				'invoice_id' => Date('Ymd').$dt->getTimestamp(),
+				'order_status' => '1',
+				'promotion_id' => Input::get('promotion_id'),
+				'firstname' => Input::get('firstname'),
+				'lastname' => Input::get('lastname'),
+				'tel' => Input::get('tel'),
+				'email' => Input::get('email'),
+				'address' => Input::get('address')
+			]);
+		
+		Session::flash('promotion_checkout', '1');
+
+
+		return Redirect::action('HomeController@promotion');
 	}
 
 	public function before()
@@ -789,6 +872,8 @@ $container.imagesLoaded( function() {
 		$contact = Contact::find(1);
 		$dt = new DateTime;
 
+		if(Session::get('input')){
+
 		$order = Order::create([
 				'user_id' => '1',
 				'invoice_id' => Date('Ymd').$dt->getTimestamp(),
@@ -825,11 +910,16 @@ $container.imagesLoaded( function() {
 
 		Session::forget('input');
 		Cart::destroy();
-
 		$view = array(
 			'contact' => $contact,
 			);
 		return $this->theme->scope('home.checkout_3', $view)->render();
+
+		}else{
+			return Redirect::action('HomeController@index');
+		}
+
+		
 	}
 
 }

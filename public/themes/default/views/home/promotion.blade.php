@@ -15,7 +15,7 @@
             <div class="pro-time-price">
                 <div class="pro-price">ราคา <span>{{  number_format($promotion->price) }}</span></div>
                 <div class="pro-btn-area">
-                    <a href="#" class="pro-btn">สั่งซื้อ</a> <i class="user-pay-i"></i> <span class="num-user-pay">372</span> ซื้อแล้ว
+                    <a href="{{ action('HomeController@promotion_order',$promotion->id ) }}" class="pro-btn">สั่งซื้อ</a> <i class="user-pay-i"></i> <span class="num-user-pay">372</span> ซื้อแล้ว
                 </div>
                 <div class="pro-count-time">
                     <img src="{{ asset('themes/default/assets/images/pro-time.png') }}" /> เวลาที่เหลือ <span data-countdown="{{ $promotion->expire }}" class="timecount">00:00:00</span>
@@ -55,7 +55,7 @@
                     </div>
                 </a>
                 <div class="clear"></div>
-                <a href="#" class="cart-btn">หยิบใส่ตระกร้า</a>
+                <a href="{{ action('HomeController@product_detail',$product->id) }}" class="cart-btn">หยิบใส่ตระกร้า</a>
                 <div class="clear"></div>
             </div>
             @endforeach

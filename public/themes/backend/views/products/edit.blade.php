@@ -92,7 +92,7 @@
 			<div class="form-group">
 				<label class="col-sm-2 control-label">Best Seller</label>
 				<div class="col-sm-6">
-					<input name="best_sell" {{ $product->best_sell ? 'checked' : '' }} type="checkbox" class="form-control"/>
+					<input name="best_sell" {{ $product->best_sell ? 'checked' : '' }} value="1" type="checkbox" class="form-control"/>
 				</div>
 			</div>
 		</div>

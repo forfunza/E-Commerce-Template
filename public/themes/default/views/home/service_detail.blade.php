@@ -9,37 +9,38 @@
             </div>
         </div>
         <div class="service-form">
-            <form action="#">
+            
+            {{ Form::open(array('action' => array('HomeController@service_discount'), 'method' => 'post')) }}
                 <h1>ลงทะเบียนเพื่อรับสิทธิ์ส่วนลดจากโปรแกรมนี้</h1>
                 <div class="form-row">
-                    <span>ชื่อ</span> <input type="text" name="#" class="text-box half" />
-                    <span>นามสกุล</span> <input type="text" name="#" class="text-box half" />
+                    <span>ชื่อ</span> <input type="text" name="firstname" class="text-box half"  required/>
+                    <span>นามสกุล</span> <input type="text" name="lastname" class="text-box half"  required/>
                 </div>
                 <div class="form-row">
-                    <span>โทร.</span> <input type="text" name="#" class="text-box half" />
-                    <span>อีเมล์</span> <input type="text" name="#" class="text-box half" />
+                    <span>โทร.</span> <input type="text" name="tel" class="text-box half" />
+                    <span>อีเมล์</span> <input type="text" name="email" class="text-box half"  required/>
                 </div>
                 <div class="form-row">
-                    <span>ที่อยู่</span> <input type="text" name="#" class="text-box" />
+                    <span>ที่อยู่</span> <input type="text" name="address" class="text-box" />
                 </div>
                 <div class="form-row">
-                    <span>ปัญหาที่กังวัล</span> <input type="text" name="#" class="text-box" />
+                    <span>ปัญหาที่กังวัล</span> <input type="text" name="problem" class="text-box"  required/>
+                    <input type="hidden" name="service_id" value="{{ $service->id }}"/>
                 </div>
                 <div class="form-row">
                     สาขาที่ต้องการเข้ารับบริการ
-                    <select class="">
-                        <option>กรุณาเลือกคำตอบ</option>
-                        <option>สาขาทองหล่อ</option>
-                        <option>สาขาสยามฯ</option>
-                        <option>สาขาสีลม</option>
+                    <select name="branch" class="">
+                        <option value="สาขาทองหล่อ">สาขาทองหล่อ</option>
+                        <option value="สาขาสยามฯ">สาขาสยามฯ</option>
+                        <option value="สาขาสีลม">สาขาสีลม</option>
                     </select>
-                    วัน / เวลา ที่สะดวกให้ติดต่อกลับ <input type="text" name="#" class="text-box mini" />
+                    วัน / เวลา ที่สะดวกให้ติดต่อกลับ <input type="text" name="contact" class="text-box mini" />
                 </div>
                 <div class="form-row">
                     <input type="submit" class="submit" value="ตกลง" />
                     <input type="reset" class="reset" value="ยกเลิก" />
                 </div>
-            </form>
+            {{ Form::close() }}
         </div>
         <div class="near-pomotion">
             {{ Theme::widget('WidgetHotpromotion', array('hot_promotion' => $hot_promotion))->render(); }}

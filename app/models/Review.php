@@ -8,6 +8,6 @@ class Review extends \Eloquent {
 	];
 
 	// Don't forget to fill this array
-	protected $fillable = ['image','highlight','name','description','youtube','url','tel','facebook','line','website','instagram'];
+	protected $fillable = ['image','highlight','name','description','youtube','url','tel','facebook','line','website','instagram','home'];
 
 }

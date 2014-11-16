@@ -1,9 +1,9 @@
-{{ Form::open(array('action' => array('AboutsController@update',$about->id), 'method' => 'put', 'class' => 'form-horizontal bucket-form', 'enctype' => 'multipart/form-data')) }}
+{{ Form::open(array('action' => array('AboutsController@update',$promotionorder->id), 'method' => 'put', 'class' => 'form-horizontal bucket-form')) }}
 	<section class="panel">
 		<header class="panel-heading">
-			About
+			Promotion Order Information
 			<div class="pull-right">
-				<button type="submit" class="btn btn-primary">Save</button>
+				<button type="submit" class="btn btn-primary">Edit</button>
 			</div>
 			<div class="clearfix"></div>
 		</header>

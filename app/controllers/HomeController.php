@@ -63,7 +63,7 @@ jQuery(function(){
 
 		$review = Review::where('home',1)->first();
 		if(empty($review))
-			$review = Review::orderBy('updated_at','desc')->take(1)->get();
+			$review = Review::orderBy('updated_at','desc')->first();
 
 		//dd($review);
 

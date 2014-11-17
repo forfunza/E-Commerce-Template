@@ -58,7 +58,7 @@ jQuery(function(){
 		$news = News::orderBy('updated_at','desc')->take(4)->get();
 		$reviews = Review::orderBy('updated_at','desc')->take(4)->get();
 		$consults = Consult::orderBy('updated_at','desc')->take(4)->get();
-
+		$celebs = Celebrity::orderBy('updated_at','desc')->take(4)->get();
 		$bests = Product::orderBy('updated_at','desc')->where('best_sell',1)->take(5)->get();
 
 		$review = Review::where('home',1)->first();
@@ -78,6 +78,7 @@ jQuery(function(){
 			'review' => $review,
 			'befores' => $befores,
 			'reviews' => $reviews,
+			'celebs' => $celebs,
 			'news' => $news,
 			'consults' => $consults,
 			'bests' => $bests,

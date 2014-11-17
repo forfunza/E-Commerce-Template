@@ -3,7 +3,7 @@
 class PromotionOrdersController extends \AdminController {
 
 	/**
-	 * Display a listing of PromotionOrders
+	 * Display a listing of promotionorders
 	 *
 	 * @return Response
 	 */
@@ -17,17 +17,17 @@ class PromotionOrdersController extends \AdminController {
 		');
 
 
-		$PromotionOrders = PromotionOrder::all();
- 
+		$promotionorders = PromotionOrder::all();
+
 		$view = array(
-			'PromotionOrders' => $PromotionOrders
+			'promotionorders' => $promotionorders
 			);
 
 		return $this->theme->scope('promotion_orders.index', $view)->render();
 	}
 
 	/**
-	 * Show the form for creating a new PromotionOrder
+	 * Show the form for creating a new promotionorder
 	 *
 	 * @return Response
 	 */
@@ -37,7 +37,7 @@ class PromotionOrdersController extends \AdminController {
 	}
 
 	/**
-	 * Store a newly created PromotionOrder in storage.
+	 * Store a newly created promotionorder in storage.
 	 *
 	 * @return Response
 	 */
@@ -56,44 +56,44 @@ class PromotionOrdersController extends \AdminController {
 	}
 
 	/**
-	 * Display the specified PromotionOrder.
+	 * Display the specified promotionorder.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function show($id)
 	{
-		$PromotionOrder = PromotionOrder::findOrFail($id);
+		$promotionorder = PromotionOrder::findOrFail($id);
 
-		return $this->theme->scope('promotion_orders.show', $PromotionOrders)->render();
+		return $this->theme->scope('promotion_orders.show', $promotionorders)->render();
 	}
 
 	/**
-	 * Show the form for editing the specified PromotionOrder.
+	 * Show the form for editing the specified promotionorder.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function edit($id)
 	{
-		$PromotionOrder = PromotionOrder::find($id);
+		$promotionorder = PromotionOrder::find($id);
 
 		$view = array(
-			'PromotionOrder' => $PromotionOrder
+			'promotionorder' => $promotionorder
 			);
 		
 		return $this->theme->scope('promotion_orders.edit', $view)->render();
 	}
 
 	/**
-	 * Update the specified PromotionOrder in storage.
+	 * Update the specified promotionorder in storage.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function update($id)
 	{
-		$PromotionOrder = PromotionOrder::findOrFail($id);
+		$promotionorder = PromotionOrder::findOrFail($id);
 
 		$validator = Validator::make($data = Input::all(), PromotionOrder::$rules);
 
@@ -102,7 +102,7 @@ class PromotionOrdersController extends \AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$PromotionOrder->update([
+		$promotionorder->update([
 			'order_status' => $data['status']
 			]);
 
@@ -110,7 +110,7 @@ class PromotionOrdersController extends \AdminController {
 	}
 
 	/**
-	 * Remove the specified PromotionOrder from storage.
+	 * Remove the specified promotionorder from storage.
 	 *
 	 * @param  int  $id
 	 * @return Response

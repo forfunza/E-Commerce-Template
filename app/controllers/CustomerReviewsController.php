@@ -17,7 +17,7 @@ class CustomerReviewsController extends \AdminController {
 		');
 
 
-		$customerreviews = Customerreview::all();
+		$customerreviews = CustomerReview::all();
 
 		$view = array(
 			'customerreviews' => $customerreviews
@@ -43,14 +43,14 @@ class CustomerReviewsController extends \AdminController {
 	 */
 	public function store()
 	{
-		$validator = Validator::make($data = Input::all(), Customerreview::$rules);
+		$validator = Validator::make($data = Input::all(), CustomerReview::$rules);
 
 		if ($validator->fails())
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$review =  Customerreview::create([
+		$review =  CustomerReview::create([
 				'name' => $data['name'],
 				'caption' => $data['caption']
 			]);
@@ -86,7 +86,7 @@ class CustomerReviewsController extends \AdminController {
 	 */
 	public function show($id)
 	{
-		$customerreview = Customerreview::findOrFail($id);
+		$customerreview = CustomerReview::findOrFail($id);
 
 		return $this->theme->scope('customer_reviews.show', $customerreviews)->render();
 	}
@@ -99,7 +99,7 @@ class CustomerReviewsController extends \AdminController {
 	 */
 	public function edit($id)
 	{
-		$customerreview = Customerreview::find($id);
+		$customerreview = CustomerReview::find($id);
 
 		$view = array(
 			'customerreview' => $customerreview
@@ -116,9 +116,9 @@ class CustomerReviewsController extends \AdminController {
 	 */
 	public function update($id)
 	{
-		$customerreview = Customerreview::findOrFail($id);
+		$customerreview = CustomerReview::findOrFail($id);
 
-		$validator = Validator::make($data = Input::all(), Customerreview::$rules);
+		$validator = Validator::make($data = Input::all(), CustomerReview::$rules);
 
 		if ($validator->fails())
 		{
@@ -160,7 +160,7 @@ class CustomerReviewsController extends \AdminController {
 	 */
 	public function destroy($id)
 	{
-		Customerreview::destroy($id);
+		CustomerReview::destroy($id);
 
 		return Redirect::action('CustomerReviewsController@index')->with('message','<strong>Success!</strong> Your content has been modified.');
 	}

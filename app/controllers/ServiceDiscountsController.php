@@ -3,7 +3,7 @@
 class ServiceDiscountsController extends \AdminController {
 
 	/**
-	 * Display a listing of ServiceDiscounts
+	 * Display a listing of servicediscounts
 	 *
 	 * @return Response
 	 */
@@ -16,17 +16,17 @@ class ServiceDiscountsController extends \AdminController {
 	    	});
 		');
 
-		$ServiceDiscounts = ServiceDiscount::all();
+		$servicediscounts = ServiceDiscount::all();
 
 		$view = array(
-			'ServiceDiscounts' => $ServiceDiscounts
+			'servicediscounts' => $servicediscounts
 			);
 
 		return $this->theme->scope('service_discounts.index', $view)->render();
 	}
 
 	/**
-	 * Show the form for creating a new ServiceDiscount
+	 * Show the form for creating a new servicediscount
 	 *
 	 * @return Response
 	 */
@@ -36,7 +36,7 @@ class ServiceDiscountsController extends \AdminController {
 	}
 
 	/**
-	 * Store a newly created ServiceDiscount in storage.
+	 * Store a newly created servicediscount in storage.
 	 *
 	 * @return Response
 	 */
@@ -55,48 +55,48 @@ class ServiceDiscountsController extends \AdminController {
 	}
 
 	/**
-	 * Display the specified ServiceDiscount.
+	 * Display the specified servicediscount.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function show($id)
 	{
-		$ServiceDiscount = ServiceDiscount::findOrFail($id);
+		$servicediscount = ServiceDiscount::findOrFail($id);
 
 		$view = array(
-			'ServiceDiscount' => $ServiceDiscount
+			'servicediscount' => $servicediscount
 			);
 
 		return $this->theme->scope('service_discounts.show', $view)->render();
 	}
 
 	/**
-	 * Show the form for editing the specified ServiceDiscount.
+	 * Show the form for editing the specified servicediscount.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function edit($id)
 	{
-		$ServiceDiscount = ServiceDiscount::find($id);
+		$servicediscount = ServiceDiscount::find($id);
 
 		$view = array(
-			'ServiceDiscount' => $ServiceDiscount
+			'servicediscount' => $servicediscount
 			);
 		
 		return $this->theme->scope('service_discounts.edit', $view)->render();
 	}
 
 	/**
-	 * Update the specified ServiceDiscount in storage.
+	 * Update the specified servicediscount in storage.
 	 *
 	 * @param  int  $id
 	 * @return Response
 	 */
 	public function update($id)
 	{
-		$ServiceDiscount = ServiceDiscount::findOrFail($id);
+		$servicediscount = ServiceDiscount::findOrFail($id);
 
 		$validator = Validator::make($data = Input::all(), ServiceDiscount::$rules);
 
@@ -105,13 +105,13 @@ class ServiceDiscountsController extends \AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		$ServiceDiscount->update($data);
+		$servicediscount->update($data);
 
 		return Redirect::action('ServiceDiscountsController@index')->with('message','<strong>Success!</strong> Your content has been modified.');
 	}
 
 	/**
-	 * Remove the specified ServiceDiscount from storage.
+	 * Remove the specified servicediscount from storage.
 	 *
 	 * @param  int  $id
 	 * @return Response

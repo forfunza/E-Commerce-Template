@@ -18,7 +18,7 @@ class PromotionOrdersController extends \AdminController {
 
 
 		$PromotionOrders = PromotionOrder::all();
-
+ 
 		$view = array(
 			'PromotionOrders' => $PromotionOrders
 			);

@@ -133,7 +133,7 @@ class ReviewsController extends AdminController {
 		if(Input::has('home')){
 			$old = Review::where('home',1)->first();
 
-			if($old->id != $review->id){
+			if($old && $old->id != $review->id){
 				$old = Review::where('home',1)->update([
 						'home' => 0
 					]);

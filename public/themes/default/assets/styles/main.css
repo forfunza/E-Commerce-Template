@@ -963,6 +963,7 @@ overflow: hidden;
 .pro-item-right h3{
 	color:#40547f;
 	margin-bottom: 5px;
+	margin-top: 0px;
 	}
 .pro-item-right,.pro-item-right a{
 	color:#333;

@@ -206,6 +206,10 @@ h2 i.tr{
 	padding:3px;
 	color:#001b54;
 	text-transform:uppercase;
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	}
 
 .h-service ul li a span{
@@ -459,13 +463,12 @@ overflow: hidden;
 	line-height: 21px;
 	text-transform: uppercase;
 	margin: 10px 0px;
-	height: 36px;
+	max-height: 36px;
 	overflow: hidden;
 	 }
 .item-caption{
 	font-size:12px;
 	color:#636363;
-	height: 31px;
 	line-height: 16px;
 	overflow: hidden;
 	}

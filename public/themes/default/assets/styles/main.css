@@ -1347,3 +1347,8 @@ input[type="text"].short:first-child{
 	.pro-item a{
 display:block;
 }
+.celebimg{
+	width:21%;
+	height:138px;
+	overflow: hidden;
+	}

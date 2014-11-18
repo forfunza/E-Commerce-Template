@@ -97,7 +97,7 @@
                     
                     @if($celebs)
                     @foreach ($celebs as $celeb)
-                    <div class="pro-item">
+                    <div class="pro-item celebimg">
                         <a href="{{ $celeb->image }}">
                             <img src="{{ $celeb->image }}">
                         </a>
@@ -130,7 +130,7 @@
                 <div class="promotion-content">
                     @if($reviews)
                     @foreach ($reviews as $review)
-                    <div class="pro-item" style="width:100%;">
+                    <div class="pro-item">
                         <a href="{{ action('HomeController@review_detail',$review->id) }}">
                             <div class="pro-item-left">
                                 <div class="pro-item-thumnail"><img src="{{ $review->image }}" /></div>

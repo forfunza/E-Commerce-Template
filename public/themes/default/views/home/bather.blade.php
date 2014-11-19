@@ -13,27 +13,7 @@
         @endif
     </div>
     <div class="cocol-right">
-        @if($services)
-        <div class="all-service">
-            <ul>
-                @foreach ($services as $tmp)
-                <li class="{{ Request::segment(2) == $tmp->id ? 'active' : '' }}"><a href="detail-service.html" >{{ str_limit($tmp->name, $limit = 15, $end = '') }}</a></li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
-        @if($bests)
-        <div class="top-product">
-            <h3>3 อันดับสินค้าขายดี</h3>
-            <ul>
-                @foreach ($bests as $best)
-                <li>
-                    <div class="item-thumbnail"><img src="{{ $best->image }}"></div>
-                    <div class="prod-name">{{ $best->name }}</div>
-                </li>
-                @endforeach
-            </ul>
-        </div>
-        @endif
+        {{ Theme::widget('WidgetServices', array('services' => $services))->render(); }}
     </div>
+    
 </section>

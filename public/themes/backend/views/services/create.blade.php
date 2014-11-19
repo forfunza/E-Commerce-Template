@@ -56,7 +56,7 @@
 			<div class="form-group">
 				<label class="control-label col-md-2">Description</label>
 				<div class="col-md-10">
-					<textarea name="description"  class="ckeditor form-control" rows="6" required></textarea>
+					<textarea name="description"  class="form-control ckeditor" rows="6"></textarea>
 				</div>
 			</div>
 		</div>

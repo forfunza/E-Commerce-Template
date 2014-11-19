@@ -20,6 +20,10 @@ class HomeController extends BaseController {
 		
 		$this->theme->asset()->usePath()->add('camera', 'styles/camera.css',array('main'), array('media' => 'all'));
 		$this->theme->asset()->container('script-header')->usePath()->add('camera', 'js/camera.js', array('jquery'));
+		
+		$this->theme->asset()->usePath()->add('colorbox', 'styles/colorbox.css',array('main'), array('media' => 'all'));
+
+		$this->theme->asset()->container('script-header')->usePath()->add('colorbox', 'js/jquery.colorbox.js', array('jquery'));
 
 		$this->theme->asset()->container('inline-header')->writeContent('sh', '<script>
 jQuery(function(){
@@ -49,6 +53,11 @@ jQuery(function(){
 	owl.trigger("owl.prev");
 	})
 	});
+
+		jQuery(document).ready(function($) {
+			$(".group1").colorbox({rel:"group1", transition:"fade"});
+			
+		});
 	</script>
 ');
 

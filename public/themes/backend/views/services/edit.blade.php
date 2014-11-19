@@ -60,7 +60,7 @@
 			<div class="form-group">
 				<label class="control-label col-md-2">Description</label>
 				<div class="col-md-10">
-					<textarea name="description"  class="ckeditor form-control" rows="6" required>{{ $service->description }}</textarea>
+					<textarea name="description"  class="ckeditor form-control" rows="6">{{ $service->description }}</textarea>
 				</div>
 			</div>
 		</div>

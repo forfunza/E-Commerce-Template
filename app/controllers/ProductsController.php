@@ -100,7 +100,7 @@ class ProductsController extends AdminController {
 				$orig->save('farms/images/products/'.$image);
 				ProductImage::create([
 					'images' => asset('farms/images/products/'.$image),
-					'progress_id' => $progress->id
+					'product_id' => $product->id
 					]);
 				
 			}

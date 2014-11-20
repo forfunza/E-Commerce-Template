@@ -53,7 +53,6 @@ class ProductsController extends AdminController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-
 		$product = Product::create(array(
 					'code' => $data['code'],
 					'name' => $data['name'],
@@ -61,7 +60,7 @@ class ProductsController extends AdminController {
 					'description' => $data['description'],
 					'category_id' => $data['category_id'],
 					'stock' => $data['stock'],
-					'best_sell' => $data['best_sell'] ?  $data['best_sell'] : '0'
+					'best_sell' => isset($data['best_sell']) ?  $data['best_sell'] : '0'
 				));
 
 

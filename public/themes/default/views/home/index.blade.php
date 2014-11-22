@@ -56,7 +56,7 @@
                     @foreach ($promotions as $promotion)
                     <div class="pro-item">
                         <div class="pro-item-left">
-                            <a href="{{ action('HomeController@promotion') }}"><div class="pro-item-thumnail"><img src="{{ $promotion->image }}" /></div></a>
+                            <a href="{{ action('HomeController@promotion') }}"><img src="{{ $promotion->image }}" /></a>
                             <a href="{{ action('HomeController@promotion') }}">สั่งซื้อโปรฯ นี้</a>
                         </div>
                         <div class="pro-item-right">
@@ -98,8 +98,9 @@
                     @if($celebs)
                     @foreach ($celebs as $celeb)
                     <div class="pro-item celebimg">
-                        
+                        <div class="pro-item-thumnail">
                         <a href="{{ $celeb->image }}" class="group1"><img src="{{ $celeb->image }}"></a>
+                        </div>
                     </div>
                     @endforeach
                     @endif
@@ -132,7 +133,7 @@
                     <div class="pro-item">
                         <a href="{{ action('HomeController@review_detail',$review->id) }}">
                             <div class="pro-item-left">
-                                <div class="pro-item-thumnail"><img src="{{ $review->image }}" /></div>
+                                <div class="pro-item-thumnail"><img src="{{ asset('themes/default/assets/images/play-i.png') }}" class="play-icon"><img src="{{ $review->image }}" /></div>
                             </div>
                             <div class="pro-item-right">
                                 <h3>{{ $review->name }}</h3>

@@ -4,7 +4,7 @@
             <ul data-breakpoint="800" class="flexnav">
                 <li><a href="{{ action('HomeController@index') }}">Home</a></li>
                 <li><a href="#">About Us</a>
-                <ul>
+                <ul style="display:none;">
                     <li><a href="{{ action('HomeController@aboutus') }}">About Amed</a></li>
                     <li><a href="{{ action('HomeController@knowledge') }}">Knowledge</a></li>
                     <li><a href="{{ action('HomeController@celebrity') }}">Celebrity</a></li>
@@ -13,7 +13,7 @@
                 </ul>
             </li>
             <li><a href="#">Services</a>
-            <ul>
+            <ul style="display:none;">
                 <li><a href="{{ action('HomeController@service') }}">All Services</a></li>
                 @if($categories)
                 @foreach ($categories as $category)

@@ -28,7 +28,10 @@
         <div id="owl-item" class="owl-item owl-carousel">
         @foreach ($customer_review as $review)
             <div class="item">
-                <div class="item-thumbnail"><img src="{{ $review->image }}" /></div>
+               
+                <div class="item-thumnail">
+                        <a href="{{ $review->image }}" class="group1"><img src="{{ $review->image }}"></a>
+                        </div>
                 <h3>{{ $review->name }}</h3>
                 <div class="item-caption">
                     {{ $review->caption }}

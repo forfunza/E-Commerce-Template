@@ -502,6 +502,11 @@ $container.imagesLoaded( function() {
 
 	public function product()
 	{
+
+		$this->theme->asset()->usePath()->add('colorbox', 'styles/colorbox.css',array('main'), array('media' => 'all'));
+
+		$this->theme->asset()->container('script-header')->usePath()->add('colorbox', 'js/jquery.colorbox.js', array('jquery'));
+
 		$this->theme->asset()->container('inline-footer')->writeContent('product','<script>
     $(document).ready(function() {
 
@@ -516,8 +521,15 @@ $container.imagesLoaded( function() {
 		autoplaySpeed:1000
 
       });
+
+
 	
     });
+
+		jQuery(document).ready(function($) {
+			$(".group1").colorbox({rel:"group1", transition:"fade"});
+			
+		});
     </script>');
 		$customer_review = CustomerReview::orderBy('updated_at','desc')->take(4)->get();
 		$categories = Category::where('entity_id',2)->get();

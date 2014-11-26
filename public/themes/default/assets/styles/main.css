@@ -450,6 +450,7 @@ overflow: hidden;
 	width:130px;
 	height:130px;
 	overflow:hidden;
+	margin: 0 auto;
 	}
 
 #owl-item .item h3{

@@ -56,7 +56,7 @@
                     @foreach ($promotions as $promotion)
                     <div class="pro-item">
                         <div class="pro-item-left">
-                            <a href="{{ action('HomeController@promotion') }}"><img src="" /></a>
+                            <a href="{{ action('HomeController@promotion') }}"><img src="{{ $promotion->image }}" /></a>
                             <a href="{{ action('HomeController@promotion') }}">สั่งซื้อโปรฯ นี้</a>
                         </div>
                         <div class="pro-item-right">
